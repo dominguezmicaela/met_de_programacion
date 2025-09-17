@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 
 
-namespace trabajoFinal
+namespace ConsoleApp1
 {
     public class Numero : Comparable //hago que la clase número implemente la interfaz comparable
     {
