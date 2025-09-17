@@ -1,5 +1,5 @@
 using System;
-namespace ConsoleApp1
+namespace trabajoFinal
 {
     public interface Comparable
     {   //Asumo que el parametro es del mismo tipo que la clase que implementa la interfaz

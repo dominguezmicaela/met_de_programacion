@@ -17,7 +17,7 @@ caso contrario*/
 
 using System;
 using System.Collections.Generic;
-namespace ConsoleApp1
+namespace trabajoFinal
 {
     public interface Coleccionable
     {
