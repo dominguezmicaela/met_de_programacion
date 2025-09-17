@@ -24,45 +24,33 @@ namespace ConsoleApp1
 
         public int cuantos() { return this.pila.cuantos() + this.cola.cuantos(); }
 
-        public int minimo()
+          public Comparable maximo()
         {
-            if (pila.cuantos() > 0 && cola.cuantos() > 0)
+            if (this.pila.cuantos() > 0 && this.cola.cuantos() > 0)// me aseguro de que tengan elementos
             {
-                Comparable minPila = pila.minimo();
-                Comparable minCola = cola.minimo();
-                if (minPila.sosMenor(minCola)) { return ((Numero)minPila).Valor; }
-                else { return ((Numero)minCola).Valor; }
+                Comparable maxPila = this.pila.maximo(); //busco max 
+                Comparable maxCola = this.cola.maximo();
+                if (maxPila.sosMayor(maxCola)) { return maxPila; } //si el max de la pila es mayor al de la cola devuelvo el de la pila 
+                else { return maxCola; }
             }
-            else
-            {
-                if (pila.cuantos() > 0) { return ((Numero)pila.minimo()).Valor; }
-                else
-                {
-                    if (cola.cuantos() > 0) { return ((Numero)cola.minimo()).Valor; }
-                    else { throw new Exception("Ambas colecciones vacias"); }
-                }
-            }
+            else if (this.pila.cuantos() > 0) { return this.pila.maximo(); }// si solo tiene elementos la pila devuelvo el maximo de la pila
+            else if (this.cola.cuantos() > 0) { return this.cola.maximo(); }//"""
+            else { throw new Exception("Ambas colecciones vacias"); }
 
         }
-        //maximo  Devuelve el elemento de mayor valor entre ambos coleccionables
-        public int maximo()
+        // similar al maximo
+        public Comparable minimo()
         {
-            if (pila.cuantos() > 0 && cola.cuantos() > 0)
+            if (this.pila.cuantos() > 0 && this.cola.cuantos() > 0)
             {
-                Comparable maxPila = pila.maximo();
-                Comparable maxCola = cola.maximo();
-                if (maxPila.sosMayor(maxCola)) { return ((Numero)maxPila).Valor; }
-                else { return ((Numero)maxCola).Valor; }
+                Comparable minPila = this.pila.minimo();
+                Comparable minCola = this.cola.minimo();
+                if (minPila.sosMenor(minCola)) { return minPila; }
+                else { return minCola; }
             }
-            else
-            {
-                if (pila.cuantos() > 0) { return ((Numero)pila.maximo()).Valor; }
-                else
-                {
-                    if (cola.cuantos() > 0) { return ((Numero)cola.maximo()).Valor; }
-                    else { throw new Exception("Ambas colecciones vacias"); }
-                }
-            }
+            else if (this.pila.cuantos() > 0) { return this.pila.minimo(); }
+            else if (this.cola.cuantos() > 0) { return this.cola.minimo(); }
+            else { throw new Exception("Ambas colecciones vacias"); }
 
         }
         //agregar no hace nada   
