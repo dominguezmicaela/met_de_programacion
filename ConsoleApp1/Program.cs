@@ -65,9 +65,9 @@ namespace ConsoleApp1
         //Agrego el metodo informar que recibe una c. multiple y muestra la info
         public static void informar(ColeccionMultiple cm)
         {
-            Console.WriteLine("Cant de elementos: {0}", cm.cuantos());
-            Console.WriteLine("Min {0}", cm.minimo());
-            Console.WriteLine("Max {0}", cm.maximo());
+            Console.WriteLine("Cantidad de elementos: {0}", cm.cuantos());
+            Console.WriteLine("Mininmo {0}", cm.minimo());
+            Console.WriteLine("Maximo {0}", cm.maximo());
             // asumo que informar debe ser similar al anterior por lo tanto agrego la busquedad del elemento
             Console.WriteLine("Ingrese un numero a buscar: ");
             try
