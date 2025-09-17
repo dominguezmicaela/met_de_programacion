@@ -46,5 +46,7 @@ namespace ConsoleApp1
             //comparo
             return (this.valor > num.Valor);
         }
+        public override string ToString(){return valor.ToString();}
+
     }
 }

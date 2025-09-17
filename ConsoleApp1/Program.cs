@@ -18,7 +18,7 @@ namespace ConsoleApp1
             informar(cola);
         }
         //E5
-        static void llenar(Coleccionable col)
+        public static void llenar(Coleccionable col)
         {
             Random rand = new Random();
             for (int i = 0; i < 20; i++)
@@ -35,11 +35,14 @@ namespace ConsoleApp1
             Console.WriteLine("Minimo: {0}", c.minimo());
             Console.WriteLine("Maximo: {0}", c.maximo());
             Console.WriteLine("Ingrese un numero a buscar: ");
-            try { int numero = int.Parse(Console.ReadLine()); }
-            catch (FormatException) { Console.WriteLine("Formato invalido"); }
-            catch (OverflowException) { Console.WriteLine("Numero fuera de rango"); }
-            if (c.contiene(numero0)) { Console.WriteLine("El elemento leido esta en la coleccion")}
-            else { Console.WriteLine("El elemento no esta en la coleeccion")}
+            try
+            {
+                Comparable numero = new Numero(int.Parse(Console.ReadLine()));
+                if (c.contiene(numero)) { Console.WriteLine("El elemento leido esta en la coleccion"); }
+                else { Console.WriteLine("El elemento no esta en la coleeccion"); }
+            }
+            catch (Exception) { Console.WriteLine("Ingreso invalido"); }
 
         }
+    }
 }
