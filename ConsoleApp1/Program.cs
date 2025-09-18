@@ -25,12 +25,26 @@ namespace ConsoleApp1
             ColeccionMultiple multiple = new ColeccionMultiple(pila, cola);
             llenar(pila);
             llenar(cola);
-            Console.WriteLine("PILA:");
-            informar(pila);
-            Console.WriteLine("COLA:");
-            informar(cola);
-            Console.WriteLine("Coleccion multiple:");
-            informar(multiple);
+            //voy a informar cada una por separado
+            Console.WriteLine("Visualizacion de las colecciones: Ingrese una opcion del menu");
+            Console.WriteLine("1. PILA\n2. COLA\n3. COLECCION MULTIPLE\n4. SALIR");
+            int opcion = int.Parse(Console.ReadLine());
+            do
+            {
+                switch (opcion)
+                {
+                    case 1:
+                        { informar(pila); break; }
+                    case 2:
+                        { informar(cola); break; }
+                    case 3:
+                        { informar(multiple); break; }
+                    default:
+                        Console.WriteLine("Opcion invalida");
+                        break;
+                }
+            } while (opcion != 4);
+            
         }
         //Zona de metodos
 
@@ -45,7 +59,7 @@ namespace ConsoleApp1
                 col.agregar(comparable);
             }
         }
-        //E6
+        //E6 E9
         public static void informar(Coleccionable c)
         {
             Console.WriteLine("Cantidad de elementos: {0}", c.cuantos());
@@ -61,23 +75,6 @@ namespace ConsoleApp1
             catch (Exception) { Console.WriteLine("Ingreso invalido"); }
 
         }
-        //E9
-        //Agrego el metodo informar que recibe una c. multiple y muestra la info
-        public static void informar(ColeccionMultiple cm)
-        {
-            Console.WriteLine("Cantidad de elementos: {0}", cm.cuantos());
-            Console.WriteLine("Mininmo {0}", cm.minimo());
-            Console.WriteLine("Maximo {0}", cm.maximo());
-            // asumo que informar debe ser similar al anterior por lo tanto agrego la busquedad del elemento
-            Console.WriteLine("Ingrese un numero a buscar: ");
-            try
-            {
-                Comparable numero = new Numero(int.Parse(Console.ReadLine())); // creo un numero comparaable
-                if (cm.contiene(numero)) { Console.WriteLine("El elemento leido esta en la coleccion"); }
-                else { Console.WriteLine("El elemento no esta en la coleeccion"); }
-            }
-            catch (Exception) { Console.WriteLine("Ingreso invalido"); }
-
-        }
+        
     }
 }
