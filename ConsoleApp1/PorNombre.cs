@@ -2,7 +2,7 @@
 using System;
 
 namespace ConsoleApp1
-{
+{//arreglar
     public class PorNombre : EstrategiaDeComparacion
     {
         public bool sosIgual(Alumno alumno1, Alumno alumno2) { return alumno1.getNombre() == alumno2.getNombre(); }//comparo por nombre

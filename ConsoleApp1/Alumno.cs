@@ -16,13 +16,14 @@ using System;
 using System.Collections.Generic;
 namespace ConsoleApp1
 {
-    public class Alumno : Persona
+    public class Alumno : Persona,Comparable
     {
         //atributos
         private int legajo;
         private float promedio;
+        private EstrategiaDeComparacion  estrategia;
 
-        // constructor que debe recibir legajo y promedio pero que ademas tambien recibe los atrutos de persona
+        // constructor que debe recibir legajo y promedio pero que ademas tambien recibe los atribtos de persona
         public Alumno(string n, int d, int l, float p) : base(n, d)
         {
             this.legajo = l;
@@ -31,15 +32,14 @@ namespace ConsoleApp1
         //propiedades
         public int getLegajo() { return this.legajo; }
         public float getPromedio() { return this.promedio; }
-        //metodos de persona que debo sobrescribir
-        //?? no tiene mas sentido aca comparar por promedio PREGUNTRR
-        //e15
+        //metodos
         public override bool sosIgual(Comparable c)
         {
             Alumno alumno = (Alumno)c;//casteo
             return this.getPromedio() == alumno.getPromedio();//comparo por promedio si son iguales retorna true
 
         }
+        //redefino metodos
         public override bool sosMenor(Comparable c)
         {
             Alumno alumno = (Alumno)c;
@@ -50,7 +50,12 @@ namespace ConsoleApp1
             Alumno alumno = (Alumno)c;
             return this.getPromedio() > alumno.getPromedio();
         }
-        //E13Ç
+        //implemento un metodo  para que se pueda cambiar el tipo de estrateg¡ia... por nombre o por dni etc
+    
+        //E13
+        //P2E2
+       
+
         public void llenarAlumnos(Coleccionable coleccion)
         {
             Random rand = new Random();

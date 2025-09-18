@@ -21,8 +21,8 @@ namespace ConsoleApp1
     public abstract class Persona : Comparable
     {
         //atributos 
-        private string nombre;
-        private int dni;
+        protected string nombre;
+        protected int dni;
         //Constructor
         public Persona(string n, int d)
         {
