@@ -24,7 +24,7 @@ namespace ConsoleApp1
         int cuantos();
         Comparable minimo();
         Comparable maximo();
-        void agregar(Comparable c);
-        bool contiene(Comparable c);
+        public void agregar(Comparable c);
+        public bool contiene(Comparable c);
     }
 }
