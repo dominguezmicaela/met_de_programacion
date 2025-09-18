@@ -32,6 +32,7 @@ namespace ConsoleApp1
         public int getLegajo() { return this.legajo; }
         public float getPromedio() { return this.promedio; }
         //metodos de persona que debo sobrescribir
+        //?? no tiene mas sentido aca comparar por promedio PREGUNTRR
         public override bool sosIgual(Comparable c)
         {
             Alumno alumno = (Alumno)c;//casteo
@@ -48,5 +49,13 @@ namespace ConsoleApp1
             Alumno alumno = (Alumno)c;
             return this.getDNI() > alumno.getDNI();
         }
+        //E13PREGUNTAR no entienod este ejerciocio bien
+        public void llenarAlumnos(Coleccionable coleccion)
+        {
+            Random rand = new Random();
+
+        }
+
+
      }
 }
