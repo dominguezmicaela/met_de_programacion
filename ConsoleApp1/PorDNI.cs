@@ -1,6 +1,6 @@
 //P2E1 //clase por dni
 using System;
-using System.Runtime.Intrinsics.X86;
+
 
 namespace ConsoleApp1
 {//arreglar
