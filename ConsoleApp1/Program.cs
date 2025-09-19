@@ -42,10 +42,14 @@ namespace ConsoleApp1
         
         public static void compararDosAlumnos()
         {
-            Console.WriteLine("Ingrese los datos del primer alumno");
-            Alumno alumno1 = crearAlumno();
-            Console.WriteLine("Ingrese los datos del segundo alumno:");
-            Alumno alumno2 = crearAlumno();
+            //lleno una pila con 20 alumnos al azar de ahi saco dos
+            Pila piladeAlumnos = new Pila();
+            llenarAlumnos(piladeAlumnos);
+            //desapilo 2  alumnos
+           
+            Alumno alumno1 = (Alumno)piladeAlumnos.desapilar();
+            Alumno alumno2 = (Alumno)piladeAlumnos.desapilar();
+
             //ahora le pido al usuario para que me diga por que estrategia los quiere comparar
             Console.WriteLine("Elegir estrategia");
             Console.WriteLine("1.Por DNI\n2.PorLegajo\n 3.Por Promedio");
@@ -105,6 +109,8 @@ namespace ConsoleApp1
          //llenar va en program
         public static void llenarAlumnos(Coleccionable coleccion)
         {
+            //defino una estrategia por default
+            EstrategiaDeComparacion estrategia = new PorPromedio();
             Random rand = new Random();
             for (int i = 0; i < 20; i++)
             {
@@ -114,8 +120,7 @@ namespace ConsoleApp1
                     float promedio = (float)(rand.NextDouble() * 9.0 + 1.0);//rand.NextDouble() genera un número decimal aleatorio entre 0.0 y 1.0 despues se acomoda matematicamente para obtener el rango deseadp
                                                                             // creo un alumno pasandole al constructor los datos generados de forma aleatoria
                     Alumno alumno = new Alumno("Alumno" + (i + 1), rand.Next(10000000, 99999999), legajo, promedio);
-                    //agrego la estrategia
-                  //  alumno.setEstrategia(estrategia);
+                    alumno.setEstrategia(estrategia);
                     coleccion.agregar(alumno);
                 }
             }

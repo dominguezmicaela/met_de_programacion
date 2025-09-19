@@ -28,9 +28,13 @@ namespace ConsoleApp1
             }
             else { throw new Exception("Pila vacia"); }
         }
-        public void desapilar()
+        public Comparable desapilar()
         {
-            if (cuantos() > 0) { this.elementos.RemoveAt(this.cuantos() - 1); }
+            if (cuantos() > 0)
+            {   Comparable elemento = this.elementos[this.cuantos() - 1];
+                this.elementos.RemoveAt(this.cuantos() - 1);
+                return elemento;
+            }
             else { throw new Exception("Pila vacia"); }
         }
         public Comparable minimo()
