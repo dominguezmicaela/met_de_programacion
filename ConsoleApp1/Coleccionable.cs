@@ -21,9 +21,9 @@ namespace ConsoleApp1
 {
     public interface Coleccionable
     {
-        int cuantos();
-        Comparable minimo();
-        Comparable maximo();
+        public int cuantos();
+        public Comparable minimo();
+        public Comparable maximo();
         public void agregar(Comparable c);
         public bool contiene(Comparable c);
     }
