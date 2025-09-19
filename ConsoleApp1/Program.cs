@@ -15,7 +15,7 @@ namespace ConsoleApp1
             llenar(cola);
             //voy a informar cada una por separado
             Console.WriteLine("Visualizacion de las colecciones: Ingrese una opcion del menu");
-            Console.WriteLine("1. PILA\n2. COLA\n3. COLECCION MULTIPLE\n4. SALIR");
+            Console.WriteLine("1. PILA\n2. COLA\n3. COLECCION MULTIPLE\n4. COMPARAR DOS ALUMNOS\n5. SALIR");
             int opcion = int.Parse(Console.ReadLine());
             do
             {
@@ -27,16 +27,53 @@ namespace ConsoleApp1
                         { informar(cola); break; }
                     case 3:
                         { informar(multiple); break; }
+                    case 4:
+                        {
+                            
+                        }
                     default:
                         Console.WriteLine("Opcion invalida");
                         break;
                 }
-            } while (opcion != 4);
+            } while (opcion != 5);
             
         }
         //Zona de metodos
+        //metodo para cargar los datos de un alumno
+        public static Alumno crearAlumno() {
+            Console.WriteLine("Ingrese el nombre del alumno");
+            string nombre = Console.ReadLine();
+            Console.WriteLine("Ingrese el dni del alumno sin puntos");
+            int dni = int.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese el legajo");
+            int legajo = int.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese el promedio");
+            float prom = float.Parse(Console.ReadLine());
+            Alumno alumnoCargado = new Alumno(nombre, dni, legajo, prom);
+            return alumnoCargado;
+                    }
+        public static void compararDosAlumnos()
+        {
+            Console.WriteLine("Ingrese los datos del primer alumno");
+            Alumno alumno1 = crearAlumno();
+            Console.WriteLine("Ingrese los datos del segundo alumno:");
+            Alumno alumno2 = crearAlumno();
+            //ahora le pido al usuario para que me diga por que estrategia los quiere comparar
+            Console.WriteLine("Elegir estrategia");
+            Console.WriteLine("1.Por DNI\n2.PorLegajo\nPor Promedio");
+            int opcion = int.Parse(Console.ReadLine());
+            EstrategiaDeComparacion estrategia;
+            //selccion
+            switch (opcion)
+            {
+                case 1: estrategia = new PorDNI(); break;
+                case 2: estrategia = new PorLegajo(); break;
+                case 3: estrategia = new PorPromedio(); break;
+                default: Console.WriteLine("Estrategia es erronea"); break;
+            }
 
-        //E5
+        
+        }
         public static void llenar(Coleccionable col)
         {
             Random rand = new Random();

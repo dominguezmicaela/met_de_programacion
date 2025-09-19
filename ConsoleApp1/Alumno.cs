@@ -36,6 +36,8 @@ namespace ConsoleApp1
                  float promedio = (float)(rand.NextDouble() * 9.0 + 1.0);//rand.NextDouble() genera un número decimal aleatorio entre 0.0 y 1.0 despues se acomoda matematicamente para obtener el rango deseadp
                 // creo un alumno pasandole al constructor los datos generados de forma aleatoria
                  Alumno alumno = new Alumno("Alumno" + (i + 1), rand.Next(10000000, 99999999), legajo, promedio);
+                    //agrego la estrategia
+                 alumno.setEstrategia(estrategia)
                  coleccion.agregar(alumno);
                }
             }
