@@ -36,7 +36,6 @@ namespace ConsoleApp1
         public abstract bool sosIgual(Comparable c);
         public abstract bool sosMenor(Comparable c);
         public abstract bool sosMayor(Comparable c);
-
-
+        public override string ToString() => string.Format("[Persona: Nombre={0}, Dni={1}]", nombre, dni);
     }
 }

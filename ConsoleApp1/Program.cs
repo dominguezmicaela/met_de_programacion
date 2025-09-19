@@ -36,22 +36,10 @@ namespace ConsoleApp1
                         break;
                 }
             } while (opcion != 5);
-            
+
         }
         //Zona de metodos
-        //metodo para cargar los datos de un alumno
-        public static Alumno crearAlumno() {
-            Console.WriteLine("Ingrese el nombre del alumno");
-            string nombre = Console.ReadLine();
-            Console.WriteLine("Ingrese el dni del alumno sin puntos");
-            int dni = int.Parse(Console.ReadLine());
-            Console.WriteLine("Ingrese el legajo");
-            int legajo = int.Parse(Console.ReadLine());
-            Console.WriteLine("Ingrese el promedio");
-            float prom = float.Parse(Console.ReadLine());
-            Alumno alumnoCargado = new Alumno(nombre, dni, legajo, prom);
-            return alumnoCargado;
-                    }
+        
         public static void compararDosAlumnos()
         {
             Console.WriteLine("Ingrese los datos del primer alumno");
@@ -86,7 +74,7 @@ namespace ConsoleApp1
             Console.WriteLine("Alumno 1 es igual que Alumno2 :{0}", alumno1.sosIgual(alumno2));
             Console.WriteLine("Alumno 1 mayor que Alumno 2: {0}", alumno1.sosMayor(alumno2));
             Console.WriteLine("Alumno 1 menor que Alumno 2:{0}", alumno1.sosMenor(alumno2));
-            
+
         }
         public static void llenar(Coleccionable col)
         {
@@ -112,6 +100,25 @@ namespace ConsoleApp1
                 else { Console.WriteLine("El elemento no esta en la coleeccion"); }
             }
             catch (Exception) { Console.WriteLine("Ingreso invalido"); }
+
+        }
+         //llenar va en program
+        public static void llenarAlumnos(Coleccionable coleccion)
+        {
+            Random rand = new Random();
+            for (int i = 0; i < 20; i++)
+            {
+                {
+                    int legajo = rand.Next(1000, 9999);//genera legajo aleatorio entre ese rg
+                                                       //genero un promedio aleatorio entre 1 y diez con decimales
+                    float promedio = (float)(rand.NextDouble() * 9.0 + 1.0);//rand.NextDouble() genera un número decimal aleatorio entre 0.0 y 1.0 despues se acomoda matematicamente para obtener el rango deseadp
+                                                                            // creo un alumno pasandole al constructor los datos generados de forma aleatoria
+                    Alumno alumno = new Alumno("Alumno" + (i + 1), rand.Next(10000000, 99999999), legajo, promedio);
+                    //agrego la estrategia
+                  //  alumno.setEstrategia(estrategia);
+                    coleccion.agregar(alumno);
+                }
+            }
 
         }
         
