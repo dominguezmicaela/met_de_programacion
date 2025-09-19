@@ -1,17 +1,3 @@
-/*Ejercicio 12
-Implemente la clase Alumno que sea subclase de Persona:
-Alumno  Persona (hereda todo lo de persona y debo sobrescribir los metodos abstractos)
-legajo  Es una variable que almacena un
-número
-promedio  Es una variable que almacena un
-número
-constructor(n, d, l, p)  Es el constructor de la clase
-que recibe un nombre “n”, un DNI “d”,
-un legajo “l” y un promedio “p” y los
-almacena en las variables
-correspondientes.
-getLegajo  Devuelve la variable legajo
-getPromedio  Devuelve la variable promedio*/
 using System;
 using System.Collections.Generic;
 namespace ConsoleApp1
@@ -28,34 +14,17 @@ namespace ConsoleApp1
         {
             this.legajo = l;
             this.promedio = p;
+            this.estrategia = new PorNombre();//estrategia por defecto
         }
         //propiedades
         public int getLegajo() { return this.legajo; }
         public float getPromedio() { return this.promedio; }
-        //metodos
-        public override bool sosIgual(Comparable c)
-        {
-            Alumno alumno = (Alumno)c;//casteo
-            return this.getPromedio() == alumno.getPromedio();//comparo por promedio si son iguales retorna true
-
-        }
-        //redefino metodos
-        public override bool sosMenor(Comparable c)
-        {
-            Alumno alumno = (Alumno)c;
-            return this.getPromedio() < alumno.getPromedio();
-        }
-        public override bool sosMayor(Comparable c)
-        {
-            Alumno alumno = (Alumno)c;
-            return this.getPromedio() > alumno.getPromedio();
-        }
+        //modifico estos metodos
+        public override bool sosIgual(Comparable c) { return estrategia.sosIgual(this, (Alumno)c); }
+        public override bool sosMenor(Comparable c){ return estrategia.sosMenor(this, (Alumno)c); }//this apunta a la instancia actual de alumno
+        public override bool sosMayor(Comparable c){ return estrategia.sosMayor(this, (Alumno)c); }
         //implemento un metodo  para que se pueda cambiar el tipo de estrateg¡ia... por nombre o por dni etc
-    
-        //E13
-        //P2E2
-       
-
+        public void setEstrategia(EstrategiaDeComparacion nuevaEstrategia){ this.estrategia = nuevaEstrategia; }
         public void llenarAlumnos(Coleccionable coleccion)
         {
             Random rand = new Random();

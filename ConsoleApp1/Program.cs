@@ -1,16 +1,4 @@
-﻿/*Ejercicio 9
-Modifique el módulo main para crear una ColeccionMultiple e informe con esta colección.
-main
-pila = new Pila()
-cola = new Cola()
-multiple = new ColeccionMultiple(pila, cola)
-llenar(pila)
-llenar(cola)
-informar(pila)
-informar(cola)
-informar(multiple)*/
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace ConsoleApp1
