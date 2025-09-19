@@ -37,7 +37,7 @@ namespace ConsoleApp1
                 // creo un alumno pasandole al constructor los datos generados de forma aleatoria
                  Alumno alumno = new Alumno("Alumno" + (i + 1), rand.Next(10000000, 99999999), legajo, promedio);
                     //agrego la estrategia
-                 alumno.setEstrategia(estrategia)
+                    alumno.setEstrategia(estrategia);
                  coleccion.agregar(alumno);
                }
             }

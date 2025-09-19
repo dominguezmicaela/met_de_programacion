@@ -29,7 +29,7 @@ namespace ConsoleApp1
                         { informar(multiple); break; }
                     case 4:
                         {
-                            
+                            compararDosAlumnos(); break;
                         }
                     default:
                         Console.WriteLine("Opcion invalida");
@@ -60,7 +60,7 @@ namespace ConsoleApp1
             Alumno alumno2 = crearAlumno();
             //ahora le pido al usuario para que me diga por que estrategia los quiere comparar
             Console.WriteLine("Elegir estrategia");
-            Console.WriteLine("1.Por DNI\n2.PorLegajo\nPor Promedio");
+            Console.WriteLine("1.Por DNI\n2.PorLegajo\n 3.Por Promedio");
             int opcion = int.Parse(Console.ReadLine());
             EstrategiaDeComparacion estrategia;
             //selccion
@@ -69,10 +69,24 @@ namespace ConsoleApp1
                 case 1: estrategia = new PorDNI(); break;
                 case 2: estrategia = new PorLegajo(); break;
                 case 3: estrategia = new PorPromedio(); break;
-                default: Console.WriteLine("Estrategia es erronea"); break;
+                default:
+                    {
+                        Console.WriteLine("Estrategia es erronea compararemos por defecto por promedio");
+                        //debo si o si asignar algo por defecto sino me da error
+                        estrategia = new PorPromedio();
+                        break;
+                    }
             }
-
-        
+            //
+            alumno1.setEstrategia(estrategia);
+            alumno2.setEstrategia(estrategia);
+            //Ahora los muestrp
+            Console.WriteLine("Alumno 1 \n{0}", alumno1);
+            Console.WriteLine("Alumno 2\n {0}", alumno2);
+            Console.WriteLine("Alumno 1 es igual que Alumno2 :{0}", alumno1.sosIgual(alumno2));
+            Console.WriteLine("Alumno 1 mayor que Alumno 2: {0}", alumno1.sosMayor(alumno2));
+            Console.WriteLine("Alumno 1 menor que Alumno 2:{0}", alumno1.sosMenor(alumno2));
+            
         }
         public static void llenar(Coleccionable col)
         {
