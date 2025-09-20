@@ -9,6 +9,8 @@ namespace ConsoleApp1
         private List<Comparable> elementos;
         //constructor
         public Cola() { this.elementos = new List<Comparable>(); }
+        //propiedades
+        public List<Comparable> getElementosCola(){ return elementos; }
         //metdos de la interface coleccionable y los propios de la cola
         public void agregar(Comparable c) { this.elementos.Add(c); }
         public int cuantos() { return this.elementos.Count; }
@@ -57,6 +59,6 @@ namespace ConsoleApp1
             else { throw new Exception("Cola vacia"); }
         }
         public bool estaVacia() { return this.cuantos() == 0; }
-
+        
     }
 }

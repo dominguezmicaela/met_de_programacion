@@ -9,6 +9,8 @@ namespace ConsoleApp1
         private List<Comparable> elementos;
         //constructor 
         public Pila() { this.elementos = new List<Comparable>(); }
+        //propiedades
+        public List<Comparable> getElementos(){return elementos; }
         //metodos 
         // agregar recibe un comparable y lo agrega a la pila 
         public void agregar(Comparable c) { this.elementos.Add(c); }
@@ -37,6 +39,11 @@ namespace ConsoleApp1
             }
             else { throw new Exception("Pila vacia"); }
         }
+        public Comparable tope()
+        {
+            if (cuantos() > 0) { return elementos[elementos.Count - 1]; }
+            else{throw new Exception("Pila vacia");}
+        }   
         public Comparable minimo()
         {
             if (this.cuantos() > 0)

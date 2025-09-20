@@ -6,7 +6,7 @@ namespace ConsoleApp1
         public void primero();
         public void siguiente();
         public bool fin();
-        Iterable actual();
+        Comparable actual(); //devuelve el objeto iterador propio
 
     }
 }
