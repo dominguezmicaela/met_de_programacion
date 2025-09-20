@@ -12,7 +12,7 @@ en caso contrario
 */
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
+
 using ConsoleApp1;
 
 namespace ConsoleApp
@@ -23,6 +23,8 @@ namespace ConsoleApp
         private List<T> elementos;
         //constructor
         public Conjunto() { this.elementos = new List<T>(); }
+        //propiedades
+        public  List<T> getElem(){ return elementos; }
         //metodos
         public bool pertenece(T elem)
         {
@@ -31,7 +33,7 @@ namespace ConsoleApp
                 if (e.sosIgual(elem)) { return true; }
             }
             return false;
-            
+
         }
          public void agregar(T elem)
         {
