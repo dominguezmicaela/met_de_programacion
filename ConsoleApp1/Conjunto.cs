@@ -13,9 +13,7 @@ en caso contrario
 using System;
 using System.Collections.Generic;
 
-using ConsoleApp1;
-
-namespace ConsoleApp
+namespace ConsoleApp1
 {
     public class Conjunto<T> : Coleccionable where T:Comparable//solo puede ser usada con tipod t que implemente la interfaz´comparable
     {

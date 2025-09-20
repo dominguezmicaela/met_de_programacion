@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+
+
 
 namespace ConsoleApp1
 {
@@ -9,6 +11,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             //E7
+            /*
             Pila pila = new Pila();
             Cola cola = new Cola();
             ColeccionMultiple multiple = new ColeccionMultiple(pila, cola);
@@ -38,7 +41,22 @@ namespace ConsoleApp1
                 }
             } while (opcion != 5);
 
+        
+        */
+            //PRACTICA 2 E7
+            Pila pila = new Pila();
+            Cola cola = new Cola();
+            Conjunto<Comparable> conjunto= new Conjunto<Comparable>();
+            llenarAlumnos(pila);
+            llenarAlumnos(cola);
+            llenarAlumnos(conjunto);
+            imprimirElementos(pila);
+            imprimirElementos(cola);
+            imprimirElementos(conjunto);
+
+
         }
+        
         //Zona de metodos
 
         public static void compararDosAlumnos()

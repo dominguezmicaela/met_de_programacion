@@ -1,5 +1,5 @@
 using System;
-using ConsoleApp;
+
 namespace ConsoleApp1
 {
     public class IteradorConjunto : Iterador
