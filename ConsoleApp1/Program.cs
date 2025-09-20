@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ConsoleApp1
 {
@@ -39,14 +40,14 @@ namespace ConsoleApp1
 
         }
         //Zona de metodos
-        
+
         public static void compararDosAlumnos()
         {
             //lleno una pila con 20 alumnos al azar de ahi saco dos
             Pila piladeAlumnos = new Pila();
             llenarAlumnos(piladeAlumnos);
             //desapilo 2  alumnos
-           
+
             Alumno alumno1 = (Alumno)piladeAlumnos.desapilar();
             Alumno alumno2 = (Alumno)piladeAlumnos.desapilar();
 
@@ -106,7 +107,7 @@ namespace ConsoleApp1
             catch (Exception) { Console.WriteLine("Ingreso invalido"); }
 
         }
-         //llenar va en program
+        //llenar va en program
         public static void llenarAlumnos(Coleccionable coleccion)
         {
             //defino una estrategia por default
@@ -125,6 +126,20 @@ namespace ConsoleApp1
                 }
             }
 
+        }
+        //agrego metodo imporimir elementos
+        public static void imprimirElementos(Coleccionable coleccionable)
+        {
+            //
+            //creo un iterador
+            Iterador iterador = ((Iterable)coleccionable).crearIterador();
+            //inicio
+            iterador.primero();
+            while (!iterador.fin())// hacerr hasta que llegue al final
+            {
+                string actual = iterador.actual().ToString();
+                iterador.siguiente();
+            }
         }
         
     }
