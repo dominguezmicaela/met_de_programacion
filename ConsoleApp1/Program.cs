@@ -46,7 +46,7 @@ namespace ConsoleApp1
             //PRACTICA 2 E7
             Pila pila = new Pila();
             Cola cola = new Cola();
-            Conjunto<Comparable> conjunto= new Conjunto<Comparable>();
+            Conjunto<Comparable> conjunto = new Conjunto<Comparable>();
             llenarAlumnos(pila);
             llenarAlumnos(cola);
             llenarAlumnos(conjunto);
@@ -56,7 +56,7 @@ namespace ConsoleApp1
 
 
         }
-        
+
         //Zona de metodos
 
         public static void compararDosAlumnos()
@@ -158,6 +158,16 @@ namespace ConsoleApp1
                 string actual = iterador.actual().ToString();
                 iterador.siguiente();
             }
+        }
+        public static void cambiarEstrategia(Coleccionable coleccionable,EstrategiaDeComparacion estrategia)
+        {
+                Iterador iterador = ((Iterable)coleccionable).crearIterador();
+            for (iterador.primero(); iterador.fin(); iterador.siguiente())
+            {
+                Alumno alumnoActual = (Alumno)iterador.actual();
+                alumnoActual.setEstrategia(estrategia);
+                
+                }
         }
         
     }
