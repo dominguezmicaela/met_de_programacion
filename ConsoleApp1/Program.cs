@@ -42,7 +42,7 @@ namespace ConsoleApp1
             } while (opcion != 5);
 
         
-        */
+        
             //PRACTICA 2 E7
             Pila pila = new Pila();
             Cola cola = new Cola();
@@ -53,6 +53,18 @@ namespace ConsoleApp1
             imprimirElementos(pila);
             imprimirElementos(cola);
             imprimirElementos(conjunto);
+            */
+            Pila pilaAlumnos = new Pila();
+            llenarAlumnos(pilaAlumnos);
+            cambiarEstrategia(pilaAlumnos, new PorNombre());
+            informar(pilaAlumnos);
+            cambiarEstrategia(pilaAlumnos, new PorLegajo());
+            informar(pilaAlumnos);
+            cambiarEstrategia(pilaAlumnos, new PorPromedio());
+            informar(pilaAlumnos);
+            cambiarEstrategia(pilaAlumnos, new PorDNI());
+            informar(pilaAlumnos);
+            
 
 
         }

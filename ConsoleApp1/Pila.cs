@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 namespace ConsoleApp1
 {
-    public class Pila : Coleccionable
+    public class Pila : Coleccionable, Iterable
     {
         //atributos
         private List<Comparable> elementos;
         //constructor 
         public Pila() { this.elementos = new List<Comparable>(); }
         //propiedades
-        public List<Comparable> getElementos(){return elementos; }
+        public List<Comparable> getElementos() { return elementos; }
         //metodos 
         // agregar recibe un comparable y lo agrega a la pila 
         public void agregar(Comparable c) { this.elementos.Add(c); }
@@ -33,7 +33,8 @@ namespace ConsoleApp1
         public Comparable desapilar()
         {
             if (cuantos() > 0)
-            {   Comparable elemento = this.elementos[this.cuantos() - 1];
+            {
+                Comparable elemento = this.elementos[this.cuantos() - 1];
                 this.elementos.RemoveAt(this.cuantos() - 1);
                 return elemento;
             }
@@ -42,8 +43,8 @@ namespace ConsoleApp1
         public Comparable tope()
         {
             if (cuantos() > 0) { return elementos[elementos.Count - 1]; }
-            else{throw new Exception("Pila vacia");}
-        }   
+            else { throw new Exception("Pila vacia"); }
+        }
         public Comparable minimo()
         {
             if (this.cuantos() > 0)
@@ -72,6 +73,7 @@ namespace ConsoleApp1
             else { throw new Exception("Pila vacia"); }
         }
         public bool estaVacia() { return this.cuantos() == 0; }
+        public Iterador crearIterador(){return new IteradorPila<Comparable>(this);}
     }
     
 }

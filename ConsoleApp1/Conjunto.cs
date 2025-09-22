@@ -15,14 +15,14 @@ using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
-    public class Conjunto<T> : Coleccionable where T:Comparable//solo puede ser usada con tipod t que implemente la interfaz´comparable
+    public class Conjunto<T> : Coleccionable, Iterable where T : Comparable//solo puede ser usada con tipod t que implemente la interfaz´comparable
     {
         //atributos
         private List<T> elementos;
         //constructor
         public Conjunto() { this.elementos = new List<T>(); }
         //propiedades
-        public  List<T> getElem(){ return elementos; }
+        public List<T> getElem() { return elementos; }
         //metodos
         public bool pertenece(T elem)
         {
@@ -33,11 +33,11 @@ namespace ConsoleApp1
             return false;
 
         }
-         public void agregar(T elem)
+        public void agregar(T elem)
         {
-             if (!pertenece(elem) ){ elementos.Add(elem); } // si elementos no contiene a elem  lo agrega 
+            if (!pertenece(elem)) { elementos.Add(elem); } // si elementos no contiene a elem  lo agrega 
         }
-       
+
         //metodos de la clase coleccionable´
         public int cuantos() { return elementos.Count(); }
         public Comparable maximo()
@@ -54,7 +54,7 @@ namespace ConsoleApp1
                 }
                 return maximo;
             }
-         
+
         }
         public Comparable minimo()
         {
@@ -71,10 +71,9 @@ namespace ConsoleApp1
         }
         public void agregar(Comparable c)
         {
-             if (!pertenece((T)c)) { elementos.Add((T)c); } // si elementos no contiene a elem  lo agrega 
+            if (!pertenece((T)c)) { elementos.Add((T)c); } // si elementos no contiene a elem  lo agrega 
         }
-        public bool contiene(Comparable c) {
-            return elementos.Contains((T)c); 
-        }
+        public bool contiene(Comparable c){return elementos.Contains((T)c);}
+        public Iterador crearIterador(){return new IteradorConjunto<T>(this);}
     }
 }

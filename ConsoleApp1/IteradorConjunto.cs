@@ -2,13 +2,13 @@ using System;
 
 namespace ConsoleApp1
 {
-    public class IteradorConjunto : Iterador
+    public class IteradorConjunto<T>: Iterador where T:Comparable
     {
         //atributos
-        private Conjunto<Comparable> conjunto;
+        private Conjunto<T> conjunto;
         private int posicion;
         //constructor
-        public IteradorConjunto(Conjunto<Comparable> conjunto)
+        public IteradorConjunto(Conjunto<T> conjunto)
         {
             this.conjunto = conjunto;
             this.posicion = 0;

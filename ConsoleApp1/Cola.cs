@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 namespace ConsoleApp1
 {
-    public class Cola : Coleccionable
+    public class Cola : Coleccionable,Iterable
     {
         //atributos
         private List<Comparable> elementos;
         //constructor
         public Cola() { this.elementos = new List<Comparable>(); }
         //propiedades
-        public List<Comparable> getElementosCola(){ return elementos; }
+        public List<Comparable> getElementosCola() { return elementos; }
         //metdos de la interface coleccionable y los propios de la cola
         public void agregar(Comparable c) { this.elementos.Add(c); }
         public int cuantos() { return this.elementos.Count; }
@@ -59,6 +59,7 @@ namespace ConsoleApp1
             else { throw new Exception("Cola vacia"); }
         }
         public bool estaVacia() { return this.cuantos() == 0; }
+        public Iterador crearIterador(){return new IteradorCola<Comparable>(this);}
         
     }
 }
