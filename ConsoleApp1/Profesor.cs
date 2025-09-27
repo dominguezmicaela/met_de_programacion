@@ -19,7 +19,7 @@ namespace ConsoleApp1
         //metodos propios de profesor
         public void hablarALaClase() { Console.WriteLine("Hablando de algun tema"); }
         public void escribirEnElPizzaron(){ Console.WriteLine("Escribiendo en el pizzarron"); }
-        
+        public override string ToString() => string.Format("[Profesor: Nombre={0}, Dni={1}, Antiguedad={2}]", nombre, dni,antiguedad);
 
 
 
