@@ -5,17 +5,20 @@ namespace ConsoleApp1
     {
         //metodos 
         // aca deberia entonces tener un switch que instancie una vez segun un caso
+        protected GeneradorDeDatosAleatorios gen = new GeneradorDeDatosAleatorios();
+        protected LectorDeDatos lec = new LectorDeDatos();
         public static Comparable crearAleatorio(int opcion)
         {
+
             FabricaDeComparables fabrica = null;
             switch (opcion)
             {
                 case 1: { fabrica = new FabricaDeNumeros(); break; }
                 case 2: { fabrica = new FabricaDeAlumnos(); break; }
-                default:{ Console.WriteLine("Opcion invalida"); break; }
+                default: { Console.WriteLine("Opcion invalida"); break; }
             }
             return fabrica.crearAleatorio();
-        
+
         }
         //lo mismo para el otro metodo
          public static Comparable crearPorTeclado(int opcion)
