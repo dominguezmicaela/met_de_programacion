@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 
 
 
@@ -10,21 +11,37 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //creo dos pilas
-            Pila pilaAlumnos = new Pila();
-            Pila pilaDeNumeros = new Pila();
-            // muestro opcion numeros
-            llenar(pilaDeNumeros, 1);
-            informar(pilaDeNumeros, 1);
-            Console.WriteLine("");
-            //muestro opcion alumnos
-            llenar(pilaAlumnos, 2);
-            informar(pilaAlumnos, 2);
+            /* prueba fabrica de comparables
+             //creo dos pilas
+             Pila pilaAlumnos = new Pila();
+             Pila pilaDeNumeros = new Pila();
+             // muestro opcion numeros
+             llenar(pilaDeNumeros, 1);
+             informar(pilaDeNumeros, 1);
+             Console.WriteLine("");
+             //muestro opcion alumnos
+             llenar(pilaAlumnos, 2);
+             informar(pilaAlumnos, 2);
+             */
+
+            //armo un menu para probar fabrica de coleccionables sin las exc porque es solo prueba
+            Console.WriteLine("elija el tipo de coleccion");
+            Console.WriteLine("1.PILA\n2.COLA\n3.COLECCION MULTIPLE\n");
+            int opcionColeccion = int.Parse(Console.ReadLine());
+            Console.WriteLine("ahora elija el tipo de elemento");
+            Console.WriteLine("1.NUMERO\n2.ALUMNO");
+            int opcionComparable = int.Parse(Console.ReadLine());
+            //Segun la eleccion creo la coleccion con la fabrica
+            Coleccionable coleccion = FabricaDeColeccionables.crearColeccionable(opcionColeccion, opcionComparable);
+            //informar
+            informar(coleccion, opcionComparable);
+
 
 
         }
 
         //Zona de metodos
+        
 
         public static void compararDosAlumnos()
         {
@@ -79,6 +96,7 @@ namespace ConsoleApp1
             Console.WriteLine("Cantidad de elementos: {0}", c.cuantos());
             Console.WriteLine("Minimo: {0}", c.minimo());
             Console.WriteLine("Maximo: {0}", c.maximo());
+            //creo un comparable para ver si e o no e
             Comparable comparable = FabricaDeComparables.crearAleatorio(opcion);
             if (c.contiene(comparable)) { Console.WriteLine("El elemento leido esta en la coleccion"); }
             else { Console.WriteLine("El elemento no esta en la coleeccion"); }
