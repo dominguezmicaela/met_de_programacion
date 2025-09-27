@@ -26,7 +26,7 @@ namespace ConsoleApp1
         //implemento un metodo  para que se pueda cambiar el tipo de estrateg¡ia... por nombre o por dni etc
         public void setEstrategia(EstrategiaDeComparacion nuevaEstrategia) { this.estrategia = nuevaEstrategia; }
        override public string ToString() {
-      return base.ToString() + string.Format("[Alumno: Legajo={0}, Promedio={1}]", legajo, promedio);}
+      return string.Format("[Alumno: Nombre={0}, DNI={1}, Legajo={2}, Promedio={3}]",nombre, dni, legajo, promedio);}
 
 
      }

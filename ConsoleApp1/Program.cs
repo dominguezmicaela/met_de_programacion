@@ -10,61 +10,16 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //E7
-            /*
-            Pila pila = new Pila();
-            Cola cola = new Cola();
-            ColeccionMultiple multiple = new ColeccionMultiple(pila, cola);
-            llenar(pila);
-            llenar(cola);
-            //voy a informar cada una por separado
-            Console.WriteLine("Visualizacion de las colecciones: Ingrese una opcion del menu");
-            Console.WriteLine("1. PILA\n2. COLA\n3. COLECCION MULTIPLE\n4. COMPARAR DOS ALUMNOS\n5. SALIR");
-            int opcion = int.Parse(Console.ReadLine());
-            do
-            {
-                switch (opcion)
-                {
-                    case 1:
-                        { informar(pila); break; }
-                    case 2:
-                        { informar(cola); break; }
-                    case 3:
-                        { informar(multiple); break; }
-                    case 4:
-                        {
-                            compararDosAlumnos(); break;
-                        }
-                    default:
-                        Console.WriteLine("Opcion invalida");
-                        break;
-                }
-            } while (opcion != 5);
-
-        
-        
-            //PRACTICA 2 E7
-            Pila pila = new Pila();
-            Cola cola = new Cola();
-            Conjunto<Comparable> conjunto = new Conjunto<Comparable>();
-            llenarAlumnos(pila);
-            llenarAlumnos(cola);
-            llenarAlumnos(conjunto);
-            imprimirElementos(pila);
-            imprimirElementos(cola);
-            imprimirElementos(conjunto);
-            */
+            //creo dos pilas
             Pila pilaAlumnos = new Pila();
-            llenarAlumnos(pilaAlumnos);
-            cambiarEstrategia(pilaAlumnos, new PorNombre());
-            informar(pilaAlumnos);
-            cambiarEstrategia(pilaAlumnos, new PorLegajo());
-            informar(pilaAlumnos);
-            cambiarEstrategia(pilaAlumnos, new PorPromedio());
-            informar(pilaAlumnos);
-            cambiarEstrategia(pilaAlumnos, new PorDNI());
-            informar(pilaAlumnos);
-            
+            Pila pilaDeNumeros = new Pila();
+            // muestro opcion numeros
+            llenar(pilaDeNumeros, 1);
+            informar(pilaDeNumeros, 1);
+            Console.WriteLine("");
+            //muestro opcion alumnos
+            llenar(pilaAlumnos, 2);
+            informar(pilaAlumnos, 2);
 
 
         }
@@ -111,33 +66,25 @@ namespace ConsoleApp1
             Console.WriteLine("Alumno 1 menor que Alumno 2:{0}", alumno1.sosMenor(alumno2));
 
         }
-        public static void llenar(Coleccionable col)
+        public static void llenar(Coleccionable col, int opcion)
         {
-            Random rand = new Random();
             for (int i = 0; i < 20; i++)
             {
-                int valor = rand.Next(1, 101); // Valores entre 1 y 100
-                Numero comparable = new Numero(valor);
-                col.agregar(comparable);
+                col.agregar(FabricaDeComparables.crearAleatorio(opcion));
             }
         }
-        //E6 E9
-        public static void informar(Coleccionable c)
+        //En  P3E6 me piden utilizar la FabricaDeComparables y sus metodos para simplificar el metodo infromar. Agrego paramtro opcion
+        public static void informar(Coleccionable c,int opcion)
         {
             Console.WriteLine("Cantidad de elementos: {0}", c.cuantos());
             Console.WriteLine("Minimo: {0}", c.minimo());
             Console.WriteLine("Maximo: {0}", c.maximo());
-            Console.WriteLine("Ingrese un numero a buscar: ");
-            try
-            {
-                Comparable numero = new Numero(int.Parse(Console.ReadLine()));
-                if (c.contiene(numero)) { Console.WriteLine("El elemento leido esta en la coleccion"); }
-                else { Console.WriteLine("El elemento no esta en la coleeccion"); }
-            }
-            catch (Exception) { Console.WriteLine("Ingreso invalido"); }
+            Comparable comparable = FabricaDeComparables.crearAleatorio(opcion);
+            if (c.contiene(comparable)) { Console.WriteLine("El elemento leido esta en la coleccion"); }
+            else { Console.WriteLine("El elemento no esta en la coleeccion"); }
+          
 
         }
-        //llenar va en program
         public static void llenarAlumnos(Coleccionable coleccion)
         {
             //defino una estrategia por default
@@ -157,7 +104,6 @@ namespace ConsoleApp1
             }
 
         }
-        //agrego metodo imporimir elementos
         public static void imprimirElementos(Coleccionable coleccionable)
         {
             //
@@ -174,7 +120,7 @@ namespace ConsoleApp1
         public static void cambiarEstrategia(Coleccionable coleccionable,EstrategiaDeComparacion estrategia)
         {
                 Iterador iterador = ((Iterable)coleccionable).crearIterador();
-            for (iterador.primero(); iterador.fin(); iterador.siguiente())
+            for (iterador.primero();!iterador.fin(); iterador.siguiente())
             {
                 Alumno alumnoActual = (Alumno)iterador.actual();
                 alumnoActual.setEstrategia(estrategia);

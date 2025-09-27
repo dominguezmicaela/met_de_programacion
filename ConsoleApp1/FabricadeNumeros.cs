@@ -1,5 +1,5 @@
 using System;
-using System.Runtime.InteropServices;
+
 namespace ConsoleApp1
 {
     public class FabricaDeNumeros : FabricaDeComparables
