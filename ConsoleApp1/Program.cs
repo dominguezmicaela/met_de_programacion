@@ -35,13 +35,24 @@ namespace ConsoleApp1
             Coleccionable coleccion = FabricaDeColeccionables.crearColeccionable(opcionColeccion, opcionComparable);
             //informar
             informar(coleccion, opcionComparable);
+            // P3E14 
+            // creo un profesor
+            FabricaDeProfesores fabrica = new FabricaDeProfesores();
+            Profesor profe = (Profesor)fabrica.crearAleatorio();
+            for (int i = 0; i < 20; i++)
+            {
+                FabricaDeAlumnos fabricaDeAlumnos = new FabricaDeAlumnos();
+                Alumno alumno = (Alumno)fabrica.crearAleatorio();
+                profe.agregarObservador(alumno);
+                dictadoDeClases(profe);
+            }
 
 
 
         }
 
         //Zona de metodos
-        
+
 
         public static void compararDosAlumnos()
         {
@@ -91,7 +102,7 @@ namespace ConsoleApp1
             }
         }
         //En  P3E6 me piden utilizar la FabricaDeComparables y sus metodos para simplificar el metodo infromar. Agrego paramtro opcion
-        public static void informar(Coleccionable c,int opcion)
+        public static void informar(Coleccionable c, int opcion)
         {
             Console.WriteLine("Cantidad de elementos: {0}", c.cuantos());
             Console.WriteLine("Minimo: {0}", c.minimo());
@@ -100,7 +111,7 @@ namespace ConsoleApp1
             Comparable comparable = FabricaDeComparables.crearAleatorio(opcion);
             if (c.contiene(comparable)) { Console.WriteLine("El elemento leido esta en la coleccion"); }
             else { Console.WriteLine("El elemento no esta en la coleeccion"); }
-          
+
 
         }
         public static void llenarAlumnos(Coleccionable coleccion)
@@ -135,16 +146,25 @@ namespace ConsoleApp1
                 iterador.siguiente();
             }
         }
-        public static void cambiarEstrategia(Coleccionable coleccionable,EstrategiaDeComparacion estrategia)
+        public static void cambiarEstrategia(Coleccionable coleccionable, EstrategiaDeComparacion estrategia)
         {
-                Iterador iterador = ((Iterable)coleccionable).crearIterador();
-            for (iterador.primero();!iterador.fin(); iterador.siguiente())
+            Iterador iterador = ((Iterable)coleccionable).crearIterador();
+            for (iterador.primero(); !iterador.fin(); iterador.siguiente())
             {
                 Alumno alumnoActual = (Alumno)iterador.actual();
                 alumnoActual.setEstrategia(estrategia);
-                
-                }
+
+            }
         }
+        public static void dictadoDeClases(Profesor p)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                p.hablarALaClase();
+                p.escribirEnElPizzaron();
+            }
+        }
+        
         
     }
 }

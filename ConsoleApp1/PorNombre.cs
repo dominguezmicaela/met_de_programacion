@@ -5,9 +5,8 @@ namespace ConsoleApp1
 {//arreglar
     public class PorNombre : EstrategiaDeComparacion
     {
-        public bool sosIgual(Alumno alumno1, Alumno alumno2) { return alumno1.getNombre() == alumno2.getNombre(); }//comparo por nombre
-        //el metodo .compare() devuelve <0 si el primero es menor,0 iguales,>0 si el primero es mayor y agregue to lower para que haga todo en minuscula
-        public bool sosMayor(Alumno alumno1, Alumno alumno2) { return string.Compare(alumno1.getNombre().ToLower(), alumno2.getNombre().ToLower()) > 0; }
-        public bool sosMenor(Alumno alumno1,Alumno alumno2){ return string.Compare(alumno1.getNombre().ToLower(), alumno2.getNombre().ToLower()) < 0; }
+        public bool sosIgual(Comparable c1, Comparable c2) { return ((Persona)c1).getNombre() == ((Persona)c2).getNombre(); }// persona hereda nombre y dni a profesor y alumno
+        public bool sosMayor(Comparable c1, Comparable c2){ return string.Compare(((Persona)c1).getNombre().ToLower(), ((Persona)c2).getNombre().ToLower()) > 0; }
+        public bool sosMenor(Comparable c1, Comparable c2){ return string.Compare(((Persona)c1).getNombre().ToLower(),((Persona)c2).getNombre().ToLower()) < 0; }
     }
 }

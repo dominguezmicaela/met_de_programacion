@@ -5,9 +5,9 @@ namespace ConsoleApp1
 {
     public class PorLegajo : EstrategiaDeComparacion
     {//arreglar
-        public bool sosIgual(Alumno alumno1, Alumno alumno2) { return alumno1.getLegajo() == alumno2.getLegajo(); }//comparo por legajo
+        public bool sosIgual(Comparable c1,Comparable c2) { return ((Alumno)c1).getLegajo() == ((Alumno)c2).getLegajo(); }//comparo por legajo
 
-        public bool sosMayor(Alumno alumno1, Alumno alumno2) { return alumno1.getLegajo() > alumno2.getLegajo(); }
-        public bool sosMenor(Alumno alumno1,Alumno alumno2){ return alumno1.getLegajo() < alumno2.getLegajo(); }
+        public bool sosMayor(Comparable c1, Comparable c2){ return ((Alumno)c1).getLegajo() > ((Alumno)c2).getLegajo(); }
+        public bool sosMenor(Comparable c1, Comparable c2){ return ((Alumno)c1).getLegajo() < ((Alumno)c2).getLegajo(); }
     }
 }

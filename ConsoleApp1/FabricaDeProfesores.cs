@@ -8,7 +8,7 @@ namespace ConsoleApp1
         public override Comparable crearAleatorio()
         {
             //(string n, int d, int a)
-            return new Profesor(gen.stringAleatoriO(10), gen.numeroAleatorio(10000000), gen.numeroAleatorio(50));
+            return new Profesor(gen.stringAleatorio(10), gen.numeroAleatorio(10000000), gen.numeroAleatorio(50));
         }
         public override Comparable crearPorTeclado()
         {

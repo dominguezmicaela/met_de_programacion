@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+
 namespace ConsoleApp1
 {
-    public class Alumno : Persona, Comparable
+    public class Alumno : Persona, Comparable,Observador
     {
         //atributos
         private int legajo;
@@ -33,6 +33,14 @@ namespace ConsoleApp1
             Random rand = new Random();
             string[] distracciones = ["Mirando celular","Dibujando en el margen de la carpeta", "tirando aviones de papel"];
             Console.WriteLine(distracciones[rand.Next(0,2)]);
+        }
+        public void actualizar(Observado o)
+        {
+            if (((Profesor)o).getHablando())
+            {
+                this.prestarAtencion();
+            }
+            else{ this.distraerse(); }
         }
        override public string ToString()
         {

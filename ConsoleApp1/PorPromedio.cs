@@ -4,9 +4,9 @@ using System;
 namespace ConsoleApp1
 {//arreglar
     public class PorPromedio : EstrategiaDeComparacion
-    {       //CORREGIDO
-        public bool sosIgual(Alumno alumno1, Alumno alumno2) { return alumno1.getPromedio() == alumno2.getPromedio(); }//comparo por promedio
-        public bool sosMayor(Alumno alumno1, Alumno alumno2) { return alumno1.getPromedio() > alumno2.getPromedio();  }
-        public bool sosMenor(Alumno alumno1, Alumno alumno2) { return alumno1.getPromedio() < alumno2.getPromedio();  }
+    {    
+        public bool sosIgual(Comparable c1, Comparable c2){ return ((Alumno)c1).getPromedio() == ((Alumno)c2).getPromedio(); }//comparo por promedio
+        public bool sosMayor(Comparable c1, Comparable c2) { return ((Alumno)c1).getPromedio() > ((Alumno)c2).getPromedio();  }
+        public bool sosMenor(Comparable c1,Comparable c2) { return ((Alumno)c1).getPromedio() <((Alumno)c2).getPromedio();  }
     }
 }

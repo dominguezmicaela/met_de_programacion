@@ -15,7 +15,7 @@ namespace ConsoleApp1
         // un metodo  que me retorne un entero entre 0 y n maximo 
         public int numeroAleatorio(int max) { return random.Next(max); }
         //retorna un string aleatorio de x cantidad de caracteres
-        public string stringAleatoriO(int cantidad=5)// si usuario no ingresa una cantidad exacta establezco una por defect0 en este caso un string de 5 caracteres
+        public string stringAleatorio(int cantidad=5)// si usuario no ingresa una cantidad exacta establezco una por defect0 en este caso un string de 5 caracteres
         
         {
             //defino una constante con los caracteres que se encuentran en el abecedario

@@ -7,8 +7,8 @@ namespace ConsoleApp1
 
     public class PorDNI: EstrategiaDeComparacion
     {   //corregido
-        public bool sosIgual(Alumno alumno1,Alumno alumno2) { return alumno1.getDNI() == alumno2.getDNI(); }//comparo por dni
-        public bool sosMayor(Alumno alumno1,Alumno alumno2){ return alumno1.getDNI()> alumno2.getDNI();}
-        public bool sosMenor(Alumno alumno1,Alumno alumno2){ return  alumno1.getDNI()< alumno2.getDNI(); }
+        public bool sosIgual(Comparable c1,Comparable c2) { return ((Persona)c1).getDNI() == ((Persona)c2).getDNI(); }//comparo por dni
+        public bool sosMayor(Comparable c1,Comparable c2){ return ((Persona)c1).getDNI()> ((Persona)c2).getDNI();}
+        public bool sosMenor(Comparable c1,Comparable c2){ return ((Persona)c1).getDNI()< ((Persona)c2).getDNI(); }
     }
 }

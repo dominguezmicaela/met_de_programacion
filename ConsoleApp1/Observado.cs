@@ -3,8 +3,9 @@ namespace ConsoleApp1
 {
     public interface Observado
     {
-        void agregarObservador(Observador o);
-        void quitarObservador(Observador o);
-        void notificar();
+        //metodos 
+        public void agregarObservador(Observador o);
+         public void quitarObservador(Observador o);
+        public void notificar();
     }
 }
