@@ -32,8 +32,7 @@ namespace ConsoleApp1
             //elegir aleatoriamente una frase de un arrglo
             Random rand = new Random();
             string[] distracciones = ["Mirando celular","Dibujando en el margen de la carpeta", "tirando aviones de papel"];
-            int pos = rand.Next(distracciones.Length);
-            Console.WriteLine(distracciones[pos]);
+            Console.WriteLine(distracciones[rand.Next(0,2)]);
         }
        override public string ToString()
         {
