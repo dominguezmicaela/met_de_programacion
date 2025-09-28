@@ -42,7 +42,7 @@ namespace ConsoleApp1
             for (int i = 0; i < 20; i++)
             {
                 FabricaDeAlumnos fabricaDeAlumnos = new FabricaDeAlumnos();
-                Alumno alumno = (Alumno)fabrica.crearAleatorio();
+                Alumno alumno = (Alumno)fabricaDeAlumnos.crearAleatorio();
                 profe.agregarObservador(alumno);
                 dictadoDeClases(profe);
             }
@@ -52,9 +52,10 @@ namespace ConsoleApp1
         }
 
         //Zona de metodos
+        
 
 
-        public static void compararDosAlumnos()
+        /*public static void compararDosAlumnos()
         {
             //lleno una pila con 20 alumnos al azar de ahi saco dos
             Pila piladeAlumnos = new Pila();
@@ -93,7 +94,7 @@ namespace ConsoleApp1
             Console.WriteLine("Alumno 1 mayor que Alumno 2: {0}", alumno1.sosMayor(alumno2));
             Console.WriteLine("Alumno 1 menor que Alumno 2:{0}", alumno1.sosMenor(alumno2));
 
-        }
+        }*/
         public static void llenar(Coleccionable col, int opcion)
         {
             for (int i = 0; i < 20; i++)
@@ -114,7 +115,7 @@ namespace ConsoleApp1
 
 
         }
-        public static void llenarAlumnos(Coleccionable coleccion)
+        /*public static void llenarAlumnos(Coleccionable coleccion)
         {
             //defino una estrategia por default
             EstrategiaDeComparacion estrategia = new PorPromedio();
@@ -145,7 +146,8 @@ namespace ConsoleApp1
                 string actual = iterador.actual().ToString();
                 iterador.siguiente();
             }
-        }
+        }*/
+        /*
         public static void cambiarEstrategia(Coleccionable coleccionable, EstrategiaDeComparacion estrategia)
         {
             Iterador iterador = ((Iterable)coleccionable).crearIterador();
@@ -155,7 +157,7 @@ namespace ConsoleApp1
                 alumnoActual.setEstrategia(estrategia);
 
             }
-        }
+        }*/
         public static void dictadoDeClases(Profesor p)
         {
             for (int i = 0; i < 5; i++)
