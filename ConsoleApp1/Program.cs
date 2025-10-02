@@ -41,8 +41,7 @@ namespace ConsoleApp1
             Profesor profe = (Profesor)fabrica.crearAleatorio();
             for (int i = 0; i < 20; i++)
             {
-                FabricaDeAlumnos fabricaDeAlumnos = new FabricaDeAlumnos();
-                Alumno alumno = (Alumno)fabricaDeAlumnos.crearAleatorio();
+                Alumno alumno = (Alumno)FabricaDeComparables.crearAleatorio(2);
                 profe.agregarObservador(alumno);
                 dictadoDeClases(profe);
             }

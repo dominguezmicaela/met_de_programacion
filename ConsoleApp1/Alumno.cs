@@ -6,20 +6,30 @@ namespace ConsoleApp1
     public class Alumno : Persona, Comparable,Observador
     {
         //atributos
-        private int legajo;
-        private float promedio;
-        private EstrategiaDeComparacion estrategia;
+        protected int legajo;
+        protected float promedio;
+        protected EstrategiaDeComparacion estrategia;
+        protected float calificacion;
+        protected string apellido;
+        protected GeneradorDeDatosAleatorios gen;
+
 
         // constructor que debe recibir legajo y promedio pero que ademas tambien recibe los atribtos de persona
-        public Alumno(string n, int d, int l, float p) : base(n, d)
+        public Alumno(string n, string a, int d, int l, float p, float c) : base(n, d)
         {
+            this.apellido = a;
             this.legajo = l;
             this.promedio = p;
+            this.calificacion = c;
             this.estrategia = new PorNombre();//estrategia por defecto
+            this.gen = new GeneradorDeDatosAleatorios();
+            
         }
         //propiedades
-        public int getLegajo() { return this.legajo; }
-        public float getPromedio() { return this.promedio; }
+        public string Apellido{get{ return apellido; }set{ apellido = value; }}
+        public int Legajo { get { return this.legajo; } set { legajo = value; } }
+        public float Promedio{get{ return this.promedio; } set{ promedio =value; }}
+        public float Calificacion{get{ return this.calificacion; }set{calificacion = value; } }
         //modifico estos metodos
         public override bool sosIgual(Comparable c) { return estrategia.sosIgual(this, (Alumno)c); }
         public override bool sosMenor(Comparable c) { return estrategia.sosMenor(this, (Alumno)c); }//this apunta a la instancia actual de alumno
@@ -42,6 +52,9 @@ namespace ConsoleApp1
             }
             else{ this.distraerse(); }
         }
+        //P4E1
+        public virtual int responderPregunta(int pregunta){ return gen.numeroAleatorio(3) + 1; }//n aleatorio genera n de 0 a max. incremento 1 para q devuelva 123
+        public string mostrarCalificacion(){ return string.Format("[Alumno: Nombre={0}, Apellido={1}, Calificacion={2}]", nombre, apellido,calificacion); }
        override public string ToString()
         {
             return string.Format("[Alumno: Nombre={0}, DNI={1}, Legajo={2}, Promedio={3}]", nombre, dni, legajo, promedio);
