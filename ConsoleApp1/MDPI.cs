@@ -13,8 +13,10 @@ using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
+	// Se implementa Interface student
 	public interface Student
 	{
+		//METODOS	
 		string getName();
 		int yourAnswerIs(int question);
 		void setScore(int score);
@@ -23,7 +25,7 @@ namespace ConsoleApp1
 		bool lessThan(Student student);
 		bool greaterThan(Student student);
 	}
-	
+	//iterador
 	public interface Collection
 	{
 		IteratorOfStudent getIterator();
@@ -89,7 +91,7 @@ namespace ConsoleApp1
 			index++;
 		}
 	}
-	
+	//compara
 	internal class StudentComparer : IComparer<Student>
 	{
 		public int Compare(Student s1, Student s2)
