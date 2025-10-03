@@ -25,7 +25,7 @@ namespace ConsoleApp1
              */
 
             //armo un menu para probar fabrica de coleccionables sin las exc porque es solo prueba
-            Console.WriteLine("elija el tipo de coleccion");
+            /*Console.WriteLine("elija el tipo de coleccion");
             Console.WriteLine("1.PILA\n2.COLA\n3.COLECCION MULTIPLE\n");
             int opcionColeccion = int.Parse(Console.ReadLine());
             Console.WriteLine("ahora elija el tipo de elemento");
@@ -46,7 +46,8 @@ namespace ConsoleApp1
                 dictadoDeClases(profe);
             }
 
-
+            */
+            //
 
         }
 
