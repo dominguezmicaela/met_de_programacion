@@ -37,8 +37,7 @@ namespace ConsoleApp1
             informar(coleccion, opcionComparable);
             // P3E14 
             // creo un profesor
-            FabricaDeProfesores fabrica = new FabricaDeProfesores();
-            Profesor profe = (Profesor)fabrica.crearAleatorio();
+            Profesor profe = (Profesor)FabricadeComparables.crearAleatorio(3);
             for (int i = 0; i < 20; i++)
             {
                 Alumno alumno = (Alumno)FabricaDeComparables.crearAleatorio(2);
@@ -47,13 +46,34 @@ namespace ConsoleApp1
             }
 
             */
-            //
+            //P4E4
+            //creo un profe
+            Teacher profe = new Teacher();
+            cargarAlumnos(profe);
+            profe.teachingAClass();
+
+
 
         }
 
         //Zona de metodos
-        
 
+        public static void  cargarAlumnos(Teacher profe)
+        {
+            //cargo 10 alumnos
+            for (int i = 0; i < 10; i++)
+            {
+                Alumno alumno = (Alumno)FabricaDeComparables.crearAleatorio(2);//2 alumno
+                Student est = new AlumnoAdapter(alumno);
+                profe.goToClass(est);
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                AlumnoMuyEstudioso alumnoEstudioso = (AlumnoMuyEstudioso)FabricaDeComparables.crearAleatorio(4);
+                Student est = new AlumnoAdapter(alumnoEstudioso);
+                profe.goToClass(est);
+            }
+        }
 
         /*public static void compararDosAlumnos()
         {
