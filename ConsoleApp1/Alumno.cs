@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
-    public class Alumno : Persona, Comparable,Observador
+    public class Alumno : Persona, Comparable,Observador,IAlumno
     {
         //atributos
         protected int legajo;
