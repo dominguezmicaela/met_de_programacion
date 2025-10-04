@@ -1,9 +1,9 @@
 using System;
 namespace ConsoleApp1
 {
-    public interface IAlumno : Comparable
+    public interface IAlumno 
     {
-        public void setEstrategia();
+
         public string mostrarCalificacion();
     }
 }
