@@ -16,7 +16,9 @@ namespace ConsoleApp1
         {
             return adicional.mostrarCalificacion();
         }
-
+        public bool sosIgual(Comparable c){ return adicional.sosIgual(c); }
+        public bool sosMenor(Comparable c){ return adicional.sosMenor(c); }
+        public bool sosMayor(Comparable c){ return adicional.sosMayor(c); }
         
     }
 }
