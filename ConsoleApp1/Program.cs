@@ -48,9 +48,13 @@ namespace ConsoleApp1
             */
             //P4E4
             //creo un profe
-            Teacher profe = new Teacher();
+            /*Teacher profe = new Teacher();
             cargarAlumnos(profe);
-            profe.teachingAClass();
+            profe.teachingAClass();*/
+
+            //P4E8
+            Coleccionable coleccion = FabricaDeColeccionables.crearColeccionable(1, 5);//5 apunta a students;
+            informar(coleccion, 5);
 
 
 
