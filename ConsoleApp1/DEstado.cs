@@ -5,9 +5,6 @@ namespace ConsoleApp1
 {
     public class DEstado:DecoradorAlumno
     {
-       /* Un decorado que imprima PROMOCIÓN (si la nota es mayor o igual 7), APROBADO (si
-        la nota está entre 4 y 7 ó DESAPROBADO (si la nota es menor a 4):
-        Ratón Pérez 6 (APROBADO)*/
         public DEstado(IAlumno adicional):base(adicional){ }
 
         public String mostrarCalificacion()
@@ -19,7 +16,7 @@ namespace ConsoleApp1
             if (adicional.sosMayor(new Numero(6))) { estado = "Promociona"; }
             else if (adicional.sosMayor(new Numero(4))) { estado = "Aprueba"; }
             else { estado = "desaprueba"; }
-            return String.Format("Estado del alumno{0}", estado);            
+            return String.Format("{0} {1} {2}({3})",((Alumno)adicional).getNombre(),((Alumno)adicional).Apellido, ((Alumno)adicional).Calificacion, estado);            
         }
 
     }

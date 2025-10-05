@@ -6,7 +6,7 @@ namespace ConsoleApp1
     {
         //mantengo adicional desde la instancia anterior
         public DLegajo(IAlumno adicional):base(adicional){ }
-        //Un decorado que imprima el legajo: Ratón Pérez (12345/6) 6 etsa raro
+       
         public String mostrarCalificacion()
         {
             //comportamiento base
