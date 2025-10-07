@@ -7,7 +7,7 @@ namespace ConsoleApp1
     {
         public DEstado(IAlumno adicional):base(adicional){ }
 
-        public String mostrarCalificacion()
+        public override String mostrarCalificacion()
         {
             //comportamiento base
             string calificacion = base.mostrarCalificacion();

@@ -15,7 +15,7 @@ namespace ConsoleApp1
             //comportamiento base
             string calificacion = base.mostrarCalificacion();
             //componente adicional
-            return string.Format("{0} {1} {2} ({3})", ((Alumno)adicional).getNombre(), ((Alumno)adicional).Apellido, ((Alumno)adicional).Calificacion);
+          
         }
 
     }

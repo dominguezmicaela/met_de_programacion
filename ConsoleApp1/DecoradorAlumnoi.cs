@@ -1,5 +1,5 @@
 using System;
-using System.Reflection;
+
 namespace ConsoleApp1
 {
     public abstract class DecoradorAlumno : IAlumno
@@ -11,6 +11,11 @@ namespace ConsoleApp1
         {
             this.adicional = adicional;
         }
+        
+        public string Apellido { get { return adicional.Apellido; } set { adicional.Apellido = value; } }
+        public int Legajo { get { return adicional.Legajo; } set { adicional.Legajo = value; } }
+        public float Promedio{get{ return adicional.Promedio; } set{ adicional.Promedio =value; }}
+        public float Calificacion{get{ return adicional.Calificacion; }set{ adicional.Calificacion = value; } }
         //met
         public virtual string mostrarCalificacion()
         {

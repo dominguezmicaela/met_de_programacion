@@ -31,9 +31,9 @@ namespace ConsoleApp1
         public float Promedio{get{ return this.promedio; } set{ promedio =value; }}
         public float Calificacion{get{ return this.calificacion; }set{calificacion = value; } }
         //modifico estos metodos
-        public override bool sosIgual(Comparable c) { return estrategia.sosIgual(this, (Alumno)c); }
-        public override bool sosMenor(Comparable c) { return estrategia.sosMenor(this, (Alumno)c); }//this apunta a la instancia actual de alumno
-        public override bool sosMayor(Comparable c) { return estrategia.sosMayor(this, (Alumno)c); }
+        public override bool sosIgual(Comparable c) { return estrategia.sosIgual(this, (IAlumno)c); }
+        public override bool sosMenor(Comparable c) { return estrategia.sosMenor(this, (IAlumno)c); }//this apunta a la instancia actual de alumno
+        public override bool sosMayor(Comparable c) { return estrategia.sosMayor(this, (IAlumno)c); }
         //implemento un metodo  para que se pueda cambiar el tipo de estrateg¡ia... por nombre o por dni etc
         public void setEstrategia(EstrategiaDeComparacion nuevaEstrategia) { this.estrategia = nuevaEstrategia; }
         //implemento dos metodos P3E11

@@ -8,7 +8,7 @@ namespace ConsoleApp1
         //mantengo adicional desde la instancia anterior
         public DRecuadro(IAlumno adicional):base(adicional){ }
     
-        public String mostrarCalificacion()
+        public override String mostrarCalificacion()
         {
             //comportamiento base
             string calificacion = base.mostrarCalificacion();
