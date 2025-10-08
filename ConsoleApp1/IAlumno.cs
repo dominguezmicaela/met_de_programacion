@@ -11,8 +11,6 @@ namespace ConsoleApp1
         float Promedio{ get; set; }
         float Calificacion{ get; set; }
         public string mostrarCalificacion();
-        public bool sosIgual(Comparable c);
-        public bool sosMenor(Comparable c);
-        public bool sosMayor(Comparable c);
+        
     }
 }
