@@ -11,8 +11,7 @@ namespace ConsoleApp1
 {
     public class StudentsFactory:FabricaDeAlumnos
     {
-        // Alumno(string n, string a, int d, int l, float p, float c) 
-        private GeneradorDeDatosAleatorios gen;
+        // Alumno(string n, string a, int d, int l, float p, float c)
         public StudentsFactory()
         {
             this.gen = new GeneradorDeDatosAleatorios();

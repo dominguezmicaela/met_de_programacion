@@ -26,7 +26,9 @@ namespace ConsoleApp1
             
         }
         //propiedades
-        public string Apellido{get{ return apellido; }set{ apellido = value; }}
+        public string Nombre{get{ return apellido; }set{ apellido = value; }}
+        public string Apellido { get { return apellido; } set { apellido = value; } }
+        public int Dni { get { return this.dni; } set { dni = value; } }
         public int Legajo { get { return this.legajo; } set { legajo = value; } }
         public float Promedio{get{ return this.promedio; } set{ promedio =value; }}
         public float Calificacion{get{ return this.calificacion; }set{calificacion = value; } }
