@@ -11,6 +11,7 @@ namespace ConsoleApp1
         float Promedio{ get; set; }
         float Calificacion{ get; set; }
         public string mostrarCalificacion();
+        public int responderPregunta(int pregunta);
         
     }
 }
