@@ -11,12 +11,11 @@ namespace ConsoleApp1
         {
             //comportamiento base
             string calificacion = base.mostrarCalificacion();
-            // necesito un condicional aca debo usar comparables
-            string estado;
-            if (adicional.sosMayor(new Numero(6))) { estado = "Promociona"; }
-            else if (adicional.sosMayor(new Numero(4))) { estado = "Aprueba"; }
-            else { estado = "desaprueba"; }
-            return String.Format("{0} {1} {2}({3})",((Alumno)adicional).getNombre(),((Alumno)adicional).Apellido, ((Alumno)adicional).Calificacion, estado);            
+            //componente adicional
+            if (adicional.Calificacion > 0 && adicional.Calificacion < 4) { calificacion = "desaprueba"; }
+            else if (adicional.Calificacion >= 4 && adicional.Calificacion < 7) { calificacion = "aprueba"; }
+            else { calificacion = "promociona"; }
+                return calificacion;  
         }
 
     }

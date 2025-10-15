@@ -15,6 +15,7 @@ Haga que la clase Persona implemente la interface Comparable. Compare las person
 o por nombre, según prefiera.
 */
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 namespace ConsoleApp1
 {
@@ -32,6 +33,7 @@ namespace ConsoleApp1
         //propiedades
         public string getNombre() { return this.nombre; }
         public int getDNI() { return this.dni; }
+        public abstract bool sosIgual(Comparable c);
         public abstract bool sosMenor(Comparable c);
         public abstract bool sosMayor(Comparable c);
         public override string ToString() => string.Format("[Persona: Nombre={0}, Dni={1}]", nombre, dni);
