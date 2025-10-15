@@ -18,13 +18,12 @@ namespace ConsoleApp1
         public float Promedio { get { return adicional.Promedio; } set { adicional.Promedio = value; } }
         public float Calificacion { get { return adicional.Calificacion; } set { adicional.Calificacion = value; } }
         //met
-        public virtual string mostrarCalificacion()
-        {
-            return adicional.mostrarCalificacion();
-        }
-        public bool sosIgual(Comparable c) { return adicional.sosIgual(c); }
-        public bool sosMenor(Comparable c) { return adicional.sosMenor(c); }
-        public bool sosMayor(Comparable c) { return adicional.sosMayor(c); }
+        public virtual string mostrarCalificacion(){ return adicional.mostrarCalificacion();}
+        //Correccion casteos
+        public bool sosIgual(Comparable c) { return adicional.sosIgual((DecoradorAlumno)c); }
+        public bool sosMenor(Comparable c) { return adicional.sosMenor((DecoradorAlumno)c); }
+        public bool sosMayor(Comparable c) { return adicional.sosMayor((DecoradorAlumno)c); }
+        public int responderPregunta(int pregunta){ return this.adicional.responderPregunta(pregunta); }
          public override string ToString(){return  adicional.ToString();}
         
     }
