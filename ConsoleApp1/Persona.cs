@@ -32,8 +32,6 @@ namespace ConsoleApp1
         //propiedades
         public string getNombre() { return this.nombre; }
         public int getDNI() { return this.dni; }
-        //metodo de la clase  ojo  no me tengfo que  confudir en escribir los metodos abstractos deben ir vacios y luego en las subclases se sobrescrien en funcion de lo que se necesite con la palalabra clavbe override  
-        public abstract bool sosIgual(Comparable c);
         public abstract bool sosMenor(Comparable c);
         public abstract bool sosMayor(Comparable c);
         public override string ToString() => string.Format("[Persona: Nombre={0}, Dni={1}]", nombre, dni);
