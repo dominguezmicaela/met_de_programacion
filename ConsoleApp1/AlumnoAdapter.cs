@@ -4,11 +4,11 @@ namespace ConsoleApp1
     public class AlumnoAdapter : Student
     {
         //atributos
-        private Alumno alumno;
+        private IAlumno alumno;
         //Constructor
         public AlumnoAdapter(Alumno a) { this.alumno = a; }
         //METODOS	
-        public string getName() { return  this.alumno.getNombre(); }
+        public string getName() { return  this.alumno.Nombre; }
 		public int yourAnswerIs(int question){ return this.alumno.responderPregunta(question); }
 		public  void setScore(int score){ this.alumno.Calificacion = score; ; }
 		public string showResult(){ return this.alumno.mostrarCalificacion(); }
