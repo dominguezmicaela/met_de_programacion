@@ -6,7 +6,7 @@ namespace ConsoleApp1
         //atributos
         private IAlumno alumno;
         //Constructor
-        public AlumnoAdapter(Alumno a) { this.alumno = a; }
+        public AlumnoAdapter(IAlumno a) { this.alumno = a; }
         //METODOS	
         public string getName() { return  this.alumno.Nombre; }
 		public int yourAnswerIs(int question){ return this.alumno.responderPregunta(question); }

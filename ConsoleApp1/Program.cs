@@ -67,13 +67,22 @@ namespace ConsoleApp1
             //cargo 10 alumnos
             for (int i = 0; i < 10; i++)
             {
-                Alumno alumno = (Alumno)FabricaDeComparables.crearAleatorio(2);//2 alumno
+                IAlumno alumno = (Alumno)FabricaDeComparables.crearAleatorio(2);//2 alumno
+                alumno = new DLegajo(alumno);
+                alumno = new DNotaLetras(alumno);
+                alumno = new DEstado(alumno);
+                alumno = new DRecuadro(alumno);
                 Student est = new AlumnoAdapter(alumno);
                 profe.goToClass(est);
             }
             for (int i = 0; i < 10; i++)
             {
-                AlumnoMuyEstudioso alumnoEstudioso = (AlumnoMuyEstudioso)FabricaDeComparables.crearAleatorio(4);
+                IAlumno alumnoEstudioso = (AlumnoMuyEstudioso)FabricaDeComparables.crearAleatorio(4);
+                alumnoEstudioso= new DLegajo(alumnoEstudioso);
+                alumnoEstudioso = new DNotaLetras(alumnoEstudioso);
+                alumnoEstudioso = new DEstado(alumnoEstudioso);
+                alumnoEstudioso = new DRecuadro(alumnoEstudioso);
+                
                 Student est = new AlumnoAdapter(alumnoEstudioso);
                 profe.goToClass(est);
             }
