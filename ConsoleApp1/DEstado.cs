@@ -9,13 +9,16 @@ namespace ConsoleApp1
 
         public override String mostrarCalificacion()
         {
-            //comportamiento base
-            string calificacion = base.mostrarCalificacion();
-            //componente adicional
-            if (adicional.Calificacion > 0 && adicional.Calificacion < 4) { calificacion = "desaprueba"; }
-            else if (adicional.Calificacion >= 4 && adicional.Calificacion < 7) { calificacion = "aprueba"; }
-            else { calificacion = "promociona"; }
-                return calificacion;  
+           string resultado = base.mostrarCalificacion();
+
+            if (adicional.Calificacion < 4)
+                resultado += " (DESAPROBADO)";
+            else if (adicional.Calificacion >= 4 && adicional.Calificacion < 7)
+                resultado += " (APROBADO)";
+            else
+                resultado += " (PROMOCION)";
+
+            return resultado;
         }
 
     }

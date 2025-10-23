@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
+
 
 
 
@@ -45,16 +45,14 @@ namespace ConsoleApp1
                 dictadoDeClases(profe);
             }
 
-            */
-            //P4E4
-            //creo un profe
-            /*Teacher profe = new Teacher();
+        */
+        
+            Teacher profe = new Teacher();
             cargarAlumnos(profe);
-            profe.teachingAClass();*/
+            profe.teachingAClass();
 
-            //P4E8
-            Coleccionable coleccion = FabricaDeColeccionables.crearColeccionable(1, 5);//5 apunta a students;
-            informar(coleccion, 5);
+            
+            
 
 
 
@@ -145,6 +143,11 @@ namespace ConsoleApp1
             Comparable comparable = FabricaDeComparables.crearAleatorio(opcion);
             if (c.contiene(comparable)) { Console.WriteLine("El elemento leido esta en la coleccion"); }
             else { Console.WriteLine("El elemento no esta en la coleeccion"); }
+            Iterador it = ((Iterable)c).crearIterador();
+            for (it.primero(); !it.fin(); it.siguiente())
+            {
+                Console.WriteLine(it.actual());
+            }
 
 
         }

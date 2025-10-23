@@ -15,7 +15,7 @@ namespace ConsoleApp1
             //componente adicional
             int ancho = calificacion.Length+4;
             string borde = new string('*', ancho);
-            return string.Format("{0}\n*{1} *\n{2}",borde,calificacion,borde);//puede fallar xd
+            return string.Format("{0}\n*{1} *\n{2}",borde,calificacion,borde);
         }
 
     }

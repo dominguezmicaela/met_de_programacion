@@ -11,9 +11,10 @@ namespace ConsoleApp1
             //comportamiento base
             string calificacion = base.mostrarCalificacion();
             //componente adicional
-            string[] notas = ["cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"];
-            calificacion += "(" + notas[(int)adicional.Calificacion] + ")";
-            return calificacion;
+            string[] enLetras = new string[] { "CERO", "UNO", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE", "DIEZ" };
+            string resultado = base.mostrarCalificacion();
+            resultado += " (" + enLetras[(int)adicional.Calificacion] + ")";
+            return resultado;
         }
     }
 }
