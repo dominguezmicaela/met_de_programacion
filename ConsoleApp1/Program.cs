@@ -62,27 +62,29 @@ namespace ConsoleApp1
 
         public static void  cargarAlumnos(Teacher profe)
         {
-            //cargo 10 alumnos
+            
+            GeneradorDeDatosAleatorios gen = new GeneradorDeDatosAleatorios();//cargo 10 alumnos
             for (int i = 0; i < 10; i++)
             {
-                IAlumno alumno = (Alumno)FabricaDeComparables.crearAleatorio(2);//2 alumno
-                alumno = new DLegajo(alumno);
-                alumno = new DNotaLetras(alumno);
-                alumno = new DEstado(alumno);
-                alumno = new DRecuadro(alumno);
-                Student est = new AlumnoAdapter(alumno);
-                profe.goToClass(est);
+                // IAlumno alumno = (Alumno)FabricaDeComparables.crearAleatorio(2);//2 alumno
+                // alumno = new DLegajo(alumno);
+                // alumno = new DNotaLetras(alumno);
+                // alumno = new DEstado(alumno);
+                // alumno = new DRecuadro(alumno);
+                IAlumno alumno = new AlumnoProxy(gen.stringAleatorio(5), gen.stringAleatorio(7), gen.numeroAleatorio(9), gen.numeroAleatorio(5), gen.numeroAleatorio(10), gen.numeroAleatorio(10), 1);
+                Student student = new AlumnoAdapter(alumno);
+                profe.goToClass(student);
             }
             for (int i = 0; i < 10; i++)
             {
-                IAlumno alumnoEstudioso = (AlumnoMuyEstudioso)FabricaDeComparables.crearAleatorio(4);
-                alumnoEstudioso= new DLegajo(alumnoEstudioso);
-                alumnoEstudioso = new DNotaLetras(alumnoEstudioso);
-                alumnoEstudioso = new DEstado(alumnoEstudioso);
-                alumnoEstudioso = new DRecuadro(alumnoEstudioso);
-                
-                Student est = new AlumnoAdapter(alumnoEstudioso);
-                profe.goToClass(est);
+                // IAlumno alumnoEstudioso = (AlumnoMuyEstudioso)FabricaDeComparables.crearAleatorio(4);
+                // alumnoEstudioso= new DLegajo(alumnoEstudioso);
+                // alumnoEstudioso = new DNotaLetras(alumnoEstudioso);
+                // alumnoEstudioso = new DEstado(alumnoEstudioso);
+                // alumnoEstudioso = new DRecuadro(alumnoEstudioso);
+                IAlumno alumnoEstudioso = new AlumnoProxy(gen.stringAleatorio(5), gen.stringAleatorio(7), gen.numeroAleatorio(9), gen.numeroAleatorio(5), gen.numeroAleatorio(10), gen.numeroAleatorio(10),2);
+                Student student = new AlumnoAdapter(alumnoEstudioso);
+                profe.goToClass(student);
             }
         }
 

@@ -4,7 +4,7 @@ namespace ConsoleApp1
     public class AlumnoProxy:IAlumno
     {
         //atributos
-        //debe devolver todos los datos del alumno pero el metodo costoso en donde se crea es en responder pregunta
+        //debe devolver todos los datos del alumno 
         private IAlumno alumno=null;
         private string nomProxy;
         private string apeProxy;
@@ -40,11 +40,17 @@ namespace ConsoleApp1
 
             if (opcion == 1)
             {
-                if (alumno == null) { alumno = (IAlumno)FabricaDeComparables.crearAleatorio(2); }
+                if (alumno == null) {
+                    alumno = (IAlumno)FabricaDeComparables.crearAleatorio(2);
+                    Console.WriteLine(" alumno creado");
+                 }
             }
-            else
+            else if(opcion==2)
             {
-                if (alumno == null) { alumno = (IAlumno)FabricaDeComparables.crearAleatorio(4); }
+                if (alumno == null) {
+                    alumno = (IAlumno)FabricaDeComparables.crearAleatorio(4);
+                    Console.WriteLine(" alumno muy estudioso creado");
+                 }
             }
         }
         public string mostrarCalificacion()
