@@ -5,6 +5,9 @@ namespace ConsoleApp1
     {
         //atributo
         private Aula aula;
+        //constructor
+        public OrdenAulaLLena(Aula a){ this.aula = a; }
+        //metodo
         public void ejecutar(){ this.aula.claseLista(); }
     }
 }
