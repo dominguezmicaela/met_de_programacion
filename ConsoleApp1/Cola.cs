@@ -14,7 +14,11 @@ namespace ConsoleApp1
         //propiedades
         public List<Comparable> getElementosCola() { return elementos; }
         //metdos de la interface coleccionable y los propios de la cola
-        public void agregar(Comparable c) { this.elementos.Add(c); }
+        public void agregar(Comparable c) {
+            this.elementos.Add(c);
+            if (this.cuantos() == 1 && this.ordenInicio != null) { this.ordenInicio.ejecutar(); }
+            if (this.ordenLlegaAlumno != null) { this.ordenLlegaAlumno.ejecutar(c); }
+            if(this.cuantos()==40 && this.ordenAulaLlena!= null){ this.ordenAulaLlena.ejecutar(); } }
         public int cuantos() { return this.elementos.Count; }
         public bool contiene(Comparable c)
         {
@@ -28,14 +32,7 @@ namespace ConsoleApp1
             }
             else { throw new Exception("Cola vacia"); }
         }
-        public void encolar(Comparable c)
-        {
-
-            this.elementos.Add(c);
-            if (this.cuantos() == 1 && this.ordenInicio != null) { this.ordenInicio.ejecutar(); }
-            if (this.ordenLlegaAlumno != null) { this.ordenLlegaAlumno.ejecutar(c); }
-            if(this.cuantos()==40 && this.ordenAulaLlena!= null){ this.ordenAulaLlena.ejecutar(); }
-        }// encolar recibe c y lo agrega
+        public void encolar(Comparable c){ this.elementos.Add(c);}// encolar recibe c y lo agrega
         public void desencolar()
         {
             if (cuantos() > 0) { this.elementos.RemoveAt(0); }

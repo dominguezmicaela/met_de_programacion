@@ -11,7 +11,7 @@ namespace ConsoleApp1
         //Metodos
         public void ejecutar(Comparable c)
         {
-            aula.nuevoAlumno((IAlumno)c);
+            aula.nuevoAlumno((Alumno)c);
         }
     }
 }

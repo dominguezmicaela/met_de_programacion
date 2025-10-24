@@ -15,17 +15,17 @@ namespace ConsoleApp1
         public List<Comparable> getElementos() { return elementos; }
         //metodos 
         // agregar recibe un comparable y lo agrega a la pila 
-        public void agregar(Comparable c) { this.elementos.Add(c); }
-        //apilar recibe c y lo agrega
-        public void apilar(Comparable c)
+        public void agregar(Comparable c)
         {
             this.elementos.Add(c);
-            //
             if (this.cuantos() == 1 && this.ordenInicio != null) { this.ordenInicio.ejecutar(); }
             if (this.ordenLlegaAlumno != null) { this.ordenLlegaAlumno.ejecutar(c); }
-            if(this.cuantos()==40 && this.ordenAulaLlena!= null){ this.ordenAulaLlena.ejecutar(); }
-            
+            if (this.cuantos() == 40 && this.ordenAulaLlena != null) { this.ordenAulaLlena.ejecutar(); }
         }
+        //apilar recibe c y lo agrega
+        
+        public void apilar(Comparable c) { this.elementos.Add(c); }
+        
         //cuantos retorna la cantidad de elementos que tiene la pila
         public int cuantos() { return this.elementos.Count; }//devuelve la cantidad de elementos en la pila
         public bool contiene(Comparable c)
