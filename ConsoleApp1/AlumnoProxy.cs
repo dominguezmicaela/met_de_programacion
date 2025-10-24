@@ -65,17 +65,17 @@ namespace ConsoleApp1
         public bool sosIgual(Comparable c)
         {
             alumnoReal();
-            return alumno.sosIgual(c);
+            return alumno.sosIgual((AlumnoProxy)c);
         }
         public bool sosMenor(Comparable c)
         {
             alumnoReal();
-            return alumno.sosMenor(c);
+            return alumno.sosMenor((AlumnoProxy)c);
         }
         public bool sosMayor(Comparable c)
         {
             alumnoReal();
-            return alumno.sosMayor(c);
+            return alumno.sosMayor((AlumnoProxy)c);
         }
 
 
