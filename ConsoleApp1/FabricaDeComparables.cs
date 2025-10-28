@@ -34,6 +34,7 @@ namespace ConsoleApp1
                 case 3: { fabrica = new FabricaDeProfesores(); break; }
                 case 4: { fabrica = new FabricaDeAlumnosMuyEstudiosos(); break; }
                 case 5: { fabrica = new StudentsFactory(); break; }
+                case 6: { fabrica = new FabricaDeAlumnosProxy(); break; }
                 default: { Console.WriteLine("Opcion invalida"); break; }
             }
             return fabrica.crearPorTeclado();
