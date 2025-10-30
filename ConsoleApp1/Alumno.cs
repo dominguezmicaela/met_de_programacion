@@ -55,7 +55,7 @@ namespace ConsoleApp1
             else{ this.distraerse(); }
         }
         //P4E1
-        public virtual int responderPregunta(int pregunta){ return gen.numeroAleatorio(3) + 1; }//n aleatorio genera n de 0 a max. incremento 1 para q devuelva 123
+        public virtual int responderPregunta(int pregunta){ return gen.numeroAleatorio(3); }
         public string mostrarCalificacion(){ return string.Format("[Alumno: Nombre={0}, Apellido={1}, Calificacion={2}]", nombre, apellido,calificacion); }
        override public string ToString()
         {

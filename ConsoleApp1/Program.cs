@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime;
 
 
 
@@ -11,9 +12,9 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            // Teacher profe = new Teacher();
-            // cargarAlumnos(profe);
-            // profe.teachingAClass();
+            Teacher teacher = new Teacher();
+            // cargarAlumnos(teacher));
+            // teacher.teachingAClass();
             /*Pila pila = new Pila();
             Aula aula = new Aula();
             pila.setOrdenInicio(new OrdenInicio(aula));
@@ -21,7 +22,11 @@ namespace ConsoleApp1
             pila.setOrdenAulaLlena(new OrdenAulaLLena(aula));
             llenar(pila, 2);
             llenar(pila, 4);*/
-            
+            //p6e2
+            AlumnoCompuesto alumnoCompuesto = (AlumnoCompuesto)FabricaDeComparables.crearAleatorio(7);
+            Student student = new AlumnoAdapter(alumnoCompuesto);
+            teacher.goToClass(student);
+            teacher.teachingAClass();
             
 
         }
