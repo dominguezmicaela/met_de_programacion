@@ -59,50 +59,45 @@ namespace ConsoleApp1
         ellas al azar)*/
         public int responderPregunta(int pregunta)
         {
-            int[] votos= new int[3];
+            int[] contVotos= new int[3];
             foreach (IAlumno a in hijos)
             {
                 int respuesta = a.responderPregunta(pregunta);
-                switch (respuesta)
-                {
-                    case 0: { votos[0]++; break; }
-                    case 1: { votos[1]++; break; }
-                    case 2: { votos[2]++; break; }
-                }
+                contVotos[respuesta]++;
             }
-            //busqueda r mas votada
-            int maxVotos = votos[0];
-            int posMasVotada = -1;// no cuenta p0 modificacion
-            bool empate = false;
-            for (int i = 0; i < votos.Length; i++)
+            //votos es contador  y el indice coincide con la r
+            int maxVotos =-1;
+            int posMasVotada = -1;
+                bool empate = false;
+            List<int> empatadas = new List<int>();
+            for (int i = 0; i < contVotos.Length; i++)
             {
-                if (votos[i] > maxVotos)
+                if (contVotos[i] > maxVotos)
                 {
-                    maxVotos = votos[i];
+                    maxVotos = contVotos[i];
                     posMasVotada = i;
                     empate = false;
-
                 }
-                else if (votos[i] == maxVotos)
+                else if (contVotos[i] == maxVotos)
                 {
-                    empate = true;// no devuelve cuales empatanece necesito esto para luego seleccionar al azar
-
+                 empatadas.Add(i);
                 }
             }
             if (empate)
             {
-                //falta eleccion al azar de 
+                Random random = new Random();
+                int eleccionAzar = empatadas[random.Next(empatadas.Count)];
+                return eleccionAzar;
             }
             else
             {
                 return posMasVotada;
             }
-            
-            
-            
-
         }
-         public bool sosIgual(Comparable c){}
+        public bool sosIgual(Comparable c)
+        {
+            
+        }
         public bool sosMenor(Comparable c){}
         public bool sosMayor(Comparable c) { }
 
