@@ -14,13 +14,14 @@ namespace ConsoleApp1
             // Teacher profe = new Teacher();
             // cargarAlumnos(profe);
             // profe.teachingAClass();
-            Pila pila = new Pila();
+            /*Pila pila = new Pila();
             Aula aula = new Aula();
             pila.setOrdenInicio(new OrdenInicio(aula));
             pila.setOrdenLlegaAlumno(new OrdenLlegaAlumno(aula));
             pila.setOrdenAulaLlena(new OrdenAulaLLena(aula));
             llenar(pila, 2);
-            llenar(pila, 4);
+            llenar(pila, 4);*/
+            
             
 
         }
