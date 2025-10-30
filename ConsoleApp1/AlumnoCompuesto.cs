@@ -72,18 +72,30 @@ namespace ConsoleApp1
             }
             //busqueda r mas votada
             int maxVotos = votos[0];
-            int posMasVotada = 0;
-            for (int i = 1; i < votos.Length; i++)
+            int posMasVotada = -1;// no cuenta p0 modificacion
+            bool empate = false;
+            for (int i = 0; i < votos.Length; i++)
             {
                 if (votos[i] > maxVotos)
                 {
-                    maxVotos = votos[i]; 
+                    maxVotos = votos[i];
                     posMasVotada = i;
+                    empate = false;
+
                 }
-                else
+                else if (votos[i] == maxVotos)
                 {
-                    return maxVotos;
+                    empate = true;// no devuelve cuales empatanece necesito esto para luego seleccionar al azar
+
                 }
+            }
+            if (empate)
+            {
+                //falta eleccion al azar de 
+            }
+            else
+            {
+                return posMasVotada;
             }
             
             
