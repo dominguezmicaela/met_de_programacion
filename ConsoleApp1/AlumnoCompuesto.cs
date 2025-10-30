@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
 namespace ConsoleApp1
 {
     public class AlumnoCompuesto: IAlumno
@@ -32,7 +31,11 @@ namespace ConsoleApp1
             set{} }
         public int Dni{ get{ return 0; } set{} }
         public int Legajo{ get{return 0; } set{} }
-        public float Calificacion { get { return 0; } set { } }
+        public float Calificacion
+        {
+            get { return 0; }
+            set { foreach (IAlumno a in hijos){ a.Calificacion = value;}}
+        }
         //promedio gral
         public float Promedio
         {
@@ -54,9 +57,12 @@ namespace ConsoleApp1
             else{ return null;}
         }
 
-        public string mostrarCalificacion() { }
-        /*devuelve la respuesta más votada por todos los componenteshijos del compuesto (en caso de empate entre dos o más respuestas, se elige una de
-        ellas al azar)*/
+        public string mostrarCalificacion()
+        { string resultado = " ";
+            foreach (IAlumno a in hijos){resultado += a.mostrarCalificacion();}
+            return resultado;
+        }
+
         public int responderPregunta(int pregunta)
         {
             int[] contVotos= new int[3];
@@ -65,7 +71,6 @@ namespace ConsoleApp1
                 int respuesta = a.responderPregunta(pregunta);
                 contVotos[respuesta]++;
             }
-            //votos es contador  y el indice coincide con la r
             int maxVotos =-1;
             int posMasVotada = -1;
                 bool empate = false;
@@ -96,10 +101,20 @@ namespace ConsoleApp1
         }
         public bool sosIgual(Comparable c)
         {
+            if (this.hijos.Contains(c)) { return true; }
+            else{return false;}  
             
         }
-        public bool sosMenor(Comparable c){}
-        public bool sosMayor(Comparable c) { }
+        public bool sosMenor(Comparable c)
+        {
+            foreach (IAlumno a in hijos){ if (!a.sosMenor(c)){return false;}}
+            return true;
+        }
+        public bool sosMayor(Comparable c)
+        {
+            foreach (IAlumno a in hijos){ if (!a.sosMayor(c)){return false;}}
+            return true;
+        }
 
     }
 }
